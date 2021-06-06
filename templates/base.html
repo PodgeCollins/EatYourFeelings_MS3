@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+    
     <script src="https://kit.fontawesome.com/f9d6df2339.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='mine/css/styles.css') }}">
     <title>Hello Flask</title>
 </head>
 <body>
-
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+	<nav id="mainNav" class=" fixed-top navbar navbar-expand-lg navbar-light">
 		<div class="container">
 			<a class="navbar-brand" href="{{ url_for('index') }}">Eat Your Feelings</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +35,7 @@
 			</div>
 		</div>
 	</nav>
+
 	
 	<!-- Page Header -->
 	

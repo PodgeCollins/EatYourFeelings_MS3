@@ -6,10 +6,38 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h1>Log In and Get Eaten!</h1>
+                    <h1>Log In Below</h1>
+                    <h4>We've Missed You!</h4>
                 </div>
             </div>
         </div>
     </div>
 </header>
+<section class="container-fluid">
+    <div class="text-center">
+            <div class="contact-card">
+                <div class="center-form">
+                    <form>
+                        <p>Log in for Full Site Access</p>
+                        <div class="padding">
+                            <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email"
+                                required />
+                        </div>
+                        <div class="padding">
+                            <input type="password" name="password" id="password" class="form-control"
+                                placeholder="Password" required />
+                        </div>
+                        <div class="form-row text-center">
+                            <div class="col">
+                                <button type="submit" class="btn btn-success" data-toggle="modal"
+                                    data-target="submitButton">Log In</button>
+                            </div>
+                        </div>
+                        <p>Not a Member? Join the Community <a href="{{ url_for('signup') }}">Here</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@100;200;300;400;500&display=swap');
 
+/*-------------------------------Extra Stylings--------------*/
 body {
     background-image: url(../img/background.jpg);
     background-size: cover;
@@ -12,11 +13,18 @@ p {
     line-height: 1.5;
     font-family: Raleway, serif;
     color: #D9CFAC;
+    text-align: center;
 }
 
 p a {
+    color: #D9CFAC;
     text-decoration: underline
 }
+
+    p a:focus,
+    p a:hover {
+        color: #f3da7e;
+    }
 
 h1,
 h2,
@@ -28,14 +36,20 @@ h6 {
     color: #614444;
 }
 
+
+
 i {
     color: #D9CFAC;
 }
 
+img{
+    width: 100%;
+  height: 300px;
+}
 
+/*-------------------------------Navigation Bar--------------*/
 
 #mainNav {
-    position: absolute;
     border-bottom: 1px solid #e9ecef;
     background-color: #614444;
 }
@@ -91,7 +105,7 @@ i {
 }
 
 
-
+/*-------------------------------Header Section--------------*/
 
 header.glutton {
 
@@ -121,7 +135,7 @@ header.glutton .site-heading {
 }
 
 header.glutton .site-heading h1 {
-    font-size: 50px;
+    font-size: 100px;
     margin-top: 0
 }
 
@@ -132,35 +146,80 @@ header.glutton .site-heading {
 
 }
 
-@media only screen and (min-width:768px) {
 
-    header.glutton .site-heading h1 {
-        font-size: 100px
-    }
-}
+
+/*-----------------------------Index Page----------*/
 
 .card {
+    height: 60vh;
+    width: 100%;
     margin-top: 100px;
-    padding-top: 100px;
+    padding: 15px;
     position: relative;
-    display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #614444;
+    background-color: rgba(97, 68, 68, 0.900);
     background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, .125);
+    border: 1px solid rgba(133, 81, 81, 0.125);
     border-radius: .25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
 }
 
+.card .title-card{
+    height: 40%;
+    width: 80%;
+    margin: 10%;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #D9CFAC;
+    background-clip: border-box;
+    border: 1px solid rgba(133, 81, 81, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
+}
+
+.title-card p{
+    color: #614444;
+    margin-bottom: 60px;
+}
+
+
+.contact-card{
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+
+    position: relative;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgba(97, 68, 68, 0.900);
+    background-clip: border-box;
+    border: 1px solid rgba(133, 81, 81, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
+
+}
+/*-------------------------------Footer--------------*/
 
 footer {
     background-color: #614444 !important;
     position: relative;
     height: 120px;
-    margin-top: 500px;
+    margin-top: 200px;
 }
 
 .padding {
@@ -178,32 +237,69 @@ footer .copyright {
     text-align: center
 }
 
-/*--------------------------Btn-------------------------
-.btn {
-    font-size: 14px;
-    font-weight: 800;
-    padding: 15px 25px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 0;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+/*-------------------------------Log In Page--------------*/
+.contact-heading {
+    font-family: raleyway, sans-serif;
+    font-weight: 300;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    
 }
 
-.btn-primary {
-    background-color: #0085a1;
-    border-color: #0085a1
+.center-form {
+    padding-top: 10px;
+    margin: 0 auto;
+    max-width: 70%;
 }
 
-.btn-primary:active,
-.btn-primary:focus,
-.btn-primary:hover {
-    color: #fff;
-    background-color: #00657b !important;
-    border-color: #00657b !important
+.form-control {
+    background-color: #D9CFAC;
 }
 
-.btn-lg {
-    font-size: 16px;
-    padding: 25px 35px
+.form-control:focus {
+    border-color: #614444;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #705050;
+    color: #614444;
+    background-color: #D9CFAC;
 }
---------------------------------------------------------------*/
+
+input{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
+}
+
+/*--------------------------Btn-------------------------*/
+
+button[type="submit"] {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #D9CFAC;
+}
+
+.btn-success {
+    color: #D9CFAC;
+    ;
+    background-color: #614444;
+    border-color: #000000;
+}
+
+.btn-success:active,
+.btn-success:hover,
+.btn-success:focus {
+    color: #D9CFAC;
+    ;
+    background-color: #705050;
+    border-color: #D9CFAC;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #705050;
+}
+
+.btn-success:not(:disabled):not(.disabled).active,
+.btn-success:not(:disabled):not(.disabled):active,
+.show>.btn-success.dropdown-toggle {
+    color: #D9CFAC;
+    ;
+    background-color: #705050;
+    border-color: #614444;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #705050;
+    box-shadow: none !important;
+}

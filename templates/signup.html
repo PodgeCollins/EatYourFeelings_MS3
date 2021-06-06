@@ -6,11 +6,44 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h1>Create an Account</h1>
-                    <h2>and Rot Your Teeth! </h2>
+                    <h1>Create an Account!</h1>
                 </div>
             </div>
         </div>
     </div>
 </header>
+<section class="container-fluid">
+        <div class="contact-card">
+            <div class="center-form">
+                <form>
+                    <p>Enter Deatils below for Full Site Access</p>
+                    <div class="padding">
+                        <input type="text" name="name" id="firstname" class="form-control" placeholder="First Name"
+                            required />
+                    </div>
+                    <div class="padding">
+                        <input type="text" name="name" id="lastname" class="form-control" placeholder="Last Name"
+                            required />
+                    </div>
+                    <div class="padding">
+                        <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email"
+                            required />
+                    </div>
+                    <div class="padding">
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                            required />
+                    </div>
+                    <div class="form-row text-center">
+                        <div class="col">
+                            <button type="submit" class="btn btn-success" data-toggle="modal"
+                                data-target="submitButton">Log In</button>
+                        </div>
+                    </div>
+                    <p>Already a member? Sign In <a href="{{ url_for('login') }}">Here</a></p>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
