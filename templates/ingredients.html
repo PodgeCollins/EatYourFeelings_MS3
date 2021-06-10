@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="glutton">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>{{ header }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="container-fluid">
+    <div class="text-center">
+            <div class="contact-card">
+                <div class="row">
+                <div class="col-md-6"><img src="{{ ingredients.image_source }}" alt="">
+                    <h4>Ingredients</h4>
+                <ol>
+                        <li><p>{{ ingredients.ingredients }}</p></li>
+                    </ol>
+                </div>
+                    
+        
+                    
+                    <div class="col-md-6"><h4>Preparation</h4>
+                        <ol>
+                            <li><p>{{ ingredients.preperation }}</p></li>
+                        </ol>
+                    </div>
+                </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
