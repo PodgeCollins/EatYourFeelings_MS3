@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="glutton">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Pratice Recipe Page</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+    {% for prep in preparation %}
+        {{ prep.title }}<br>
+        {{ prep.description }}<br>
+        {{ prep.prep_name }}<br>
+        {{ prep.step1 }}<br>
+        {{ prep.step2 }}<br>
+        {{ prep.step3 }}<br>
+        {{ prep.step4 }}<br>
+        {{ prep.step5 }}<br>
+        {{ prep.step6 }}<br>
+        {{ prep.step7 }}<br>
+        {{ prep.step8 }}<br>
+    {% endfor %}
+</section>
+{% endblock %}
