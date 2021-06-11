@@ -5,6 +5,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -26,7 +27,8 @@ def index():
 @app.route("/get_recipes")
 def get_recipes():
     prep = mongo.db.preparation.find()
-    return render_template("newrecipes.html", preparation=prep)
+    gred = mongo.db.ingredients.find()
+    return render_template("newrecipes.html", preparation=prep, ingredients=gred)
 
 
 @app.route("/recipes")
@@ -53,8 +55,25 @@ def recipes_recipe(ingredients_prep):
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        flash("Welcome back, {}!".format(
-            request.form.get("name")))
+        
+        existing_email = mongo.db.chefs.find_one(
+            {"email": request.form.get("email").lower()})
+
+        if existing_email:
+            
+            if check_password_hash(
+                existing_email["password"], request.form.get("password")):
+                    session["chef"] = request.form.get("email").lower()
+                    flash("Welcome back, we've missed you!")
+            else:
+                
+                flash("Incorrect Email and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect Email and/or Password")
+            return redirect(url_for("login"))
     return render_template(
         "login.html", header="Log In Below",  subheader="We've Missed You!")
 
@@ -62,8 +81,28 @@ def login():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
+        
+        existing_email = mongo.db.chefs.find_one(
+            {"email": request.form.get("email").lower()})
+
+        if existing_email:
+            flash("This email is already linked to an account!")
+            return redirect(url_for("signup"))
+
+        signup = {
+            "firstName": request.form.get("firstname").lower(),
+            "lastName": request.form.get("lastname").lower(),
+            "email": request.form.get("email").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.chefs.insert_one(signup)
+
+        
+        session["chef"] = request.form.get("email").lower()
         flash("Welcome to the Family, {}!".format(
-            request.form.get("name")))
+            request.form.get("firstname")))
+            
+        
     return render_template("signup.html", header="Create an Account!")
 
 

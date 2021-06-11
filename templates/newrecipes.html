@@ -1,30 +1,55 @@
 {% extends "base.html" %}
 {% block content %}
 <header class="glutton">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="site-heading">
-          <h1>Pratice Recipe Page</h1>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Pratice Recipe Page</h1>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </header>
-<section>
-    {% for prep in preparation %}
-        {{ prep.title }}<br>
-        {{ prep.description }}<br>
-        {{ prep.prep_name }}<br>
-        {{ prep.step1 }}<br>
-        {{ prep.step2 }}<br>
-        {{ prep.step3 }}<br>
-        {{ prep.step4 }}<br>
-        {{ prep.step5 }}<br>
-        {{ prep.step6 }}<br>
-        {{ prep.step7 }}<br>
-        {{ prep.step8 }}<br>
-    {% endfor %}
+{% for gred in ingredients %}
+<section class="container-fluid">
+    <div class="text-center">
+        <div class="contact-card">
+            <div class="row">
+                <div class="col-md-6"><img src="/static/img/brownie.jpg" alt="">
+                    <h4>{{ gred.title }}</h4>
+                    <ol>
+                        <li><p>{{ gred.one }}</p></li>
+                        <li><p>{{ gred.two }}</p></li>
+                        <li><p>{{ gred.three }}</p></li>
+                        <li><p>{{ gred.four }}</p></li>
+                        <li><p>{{ gred.five }}</p></li>
+                        <li><p>{{ gred.six }}</p></li>
+                        <li><p>{{ gred.seven }}</p></li>
+                        <li><p>{{ gred.eight }}</p></li>
+                    </ol>
+
+                </div>
+{% endfor %}
+{% for prep in preparation %}
+                    <div class="col-md-6">
+                        <h4>{{ prep.prep_name }}</h4>
+                    <ol>
+                        <li><p>{{ prep.step1 }}</p></li>
+                        <li><p>{{ prep.step2 }}</p></li>
+                        <li><p>{{ prep.step3 }}</p></li>
+                        <li><p>{{ prep.step4 }}</p></li>
+                        <li><p>{{ prep.step5 }}</p></li>
+                        <li><p>{{ prep.step6 }}</p></li>
+                        <li><p>{{ prep.step7 }}</p></li>
+                        <li><p>{{ prep.step8 }}</p></li>
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+{% endfor %}
 {% endblock %}

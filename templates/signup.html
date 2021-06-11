@@ -4,7 +4,7 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="col-12 md-8 offset-m2">
                 <div class="site-heading">
                     <h1>{{ header }}</h1>
                 </div>
@@ -13,46 +13,46 @@
     </div>
 </header>
 <section class="details-container">
-        <div class="contact-card">
-            <div class="center-form">
-                <form method="POST">
-                    {% with messages = get_flashed_messages() %}
+    <div class="contact-card">
+        <div class="center-form">
+            <form method="POST" action="{{ url_for('signup') }}">
+                {% with messages = get_flashed_messages() %}
                 {% if messages %}
-                    <ul class="flashes">
-                        {% for message in messages %}
-                            <li>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
+
+                <ul class="flashes">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
                 {% endif %}
-            {% endwith %}
-                    <p>Enter Details below for Full Site Access</p>
-                    <div class="padding">
-                        <input type="text" name="name" id="name" class="form-control" placeholder="First Name"
-                            required />
+                {% endwith %}
+                <p>Enter Details below for Full Site Access</p>
+                <div class="padding">
+                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name"
+                        required />
+                </div>
+                <div class="padding">
+                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name"
+                        required />
+                </div>
+                <div class="padding">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required />
+                </div>
+                <div class="padding">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                        required />
+                </div>
+                <div class="form-row text-center">
+                    <div class="col">
+                        <button type="submit" class="btn btn-success" data-toggle="modal" data-target="submitButton">Log
+                            In</button>
                     </div>
-                    <div class="padding">
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Last Name"
-                            required />
-                    </div>
-                    <div class="padding">
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email"
-                            required />
-                    </div>
-                    <div class="padding">
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
-                            required />
-                    </div>
-                    <div class="form-row text-center">
-                        <div class="col">
-                            <button type="submit" class="btn btn-success" data-toggle="modal"
-                                data-target="submitButton">Log In</button>
-                        </div>
-                    </div>
-                    <p>Already a member? Sign In <a href="{{ url_for('login') }}">Here</a></p>
-                </form>
-            </div>
-            </div>
+                </div>
+                <p>Already a member? Sign In <a href="{{ url_for('login') }}">Here</a></p>
+            </form>
         </div>
+    </div>
+    </div>
     </div>
 </section>
 {% endblock %}

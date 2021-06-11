@@ -30,6 +30,10 @@ p a:hover {
     color: #f3da7e;
 }
 
+ul, ol{
+    color: #D9CFAC;
+}
+
 h1,
 h2,
 h3,
@@ -44,6 +48,7 @@ h4{
     font-family: Lobster, sans-serif;
     color: #D9CFAC;
     text-shadow: 1px 0.1px 6px rgb(197 189 114);
+    margin-top: 50px;
 }
 
 .flashes {
