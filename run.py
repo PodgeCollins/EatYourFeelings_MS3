@@ -19,7 +19,8 @@ def recipes():
     data = []
     with open("data/recipes.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("recipes.html", header="Perfect Recipes",  subheader="for Gluttony & Self Loathing", recipe=data)
+    return render_template(
+        "recipes.html", header="Perfect Recipes",  subheader="for Gluttony & Self Loathing", recipe=data)
 
 
 @app.route("/recipes/<ingredients_prep>")
@@ -30,7 +31,8 @@ def recipes_recipe(ingredients_prep):
         for obj in data:
             if obj["url"] == ingredients_prep:
                 recipe = obj
-    return render_template("ingredients.html", ingredients=recipe, header="Lets Get Cooking")
+    return render_template(
+        "ingredients.html", ingredients=recipe, header="Lets Get Cooking")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -38,7 +40,8 @@ def login():
     if request.method == "POST":
         flash("Welcome back, {}!".format(
             request.form.get("name")))
-    return render_template("login.html", header="Log In Below",  subheader="We've Missed You!")
+    return render_template(
+        "login.html", header="Log In Below",  subheader="We've Missed You!")
 
 
 @app.route("/signup", methods=["GET", "POST"])
