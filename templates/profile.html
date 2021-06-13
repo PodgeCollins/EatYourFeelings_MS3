@@ -1,32 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="details-container">
-            <div class="center-form responsive">
-                <h3> {{ chef.firstName }}'s Profile</h3>
-                <h5>Create recipe</h5>
-                    <div class="row>
-                        <form method="POST" action="{{ url_for('login') }}">
-                    <div class="padding">
-                        <input type="text" name="recipe" id="recipe" class="form-control" placeholder="Recipe Title" required />
-                    </div>
-                    <div class="padding">
-                        <input type="text" name="description" id="description" class="form-control" placeholder="Description" required />
-                    </div>
-                    <div class="padding">
-                            <input type="text" name="ingredient" id="ingredient" class="form-control" placeholder="Ingredient #1" required />
-                    </div>
-                    <div class="form-row text-center">
-                        <div class="col">
-                            <button type="submit" class="btn btn-success" data-toggle="modal"
-                                data-target="submitButton">Create Recipe</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-                    </div>
-            </div>
-        </div>
-    </div>
+    <div class="center-form responsive">
+        <h3> {{ chef.firstName }}'s Profile</h3>
+
     </div>
 </section>
 {% endblock %}

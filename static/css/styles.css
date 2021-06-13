@@ -280,6 +280,7 @@ header.glutton .site-heading {
 .details-container, .center-form{
     text-align: center;
     padding-top: 0px;
+    margin-top: 175px;
 }
 
 .recipe-container {
@@ -324,7 +325,7 @@ footer .copyright {
 
 /*-------------------------------Log In/Sign Up Page--------------*/
 .contact-heading {
-    font-family: raleyway, sans-serif;
+    font-family: raleway, sans-serif;
     font-weight: 300;
     margin-top: 25px;
     margin-bottom: 20px;
@@ -338,8 +339,26 @@ footer .copyright {
 }
 
 .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-family: raleway, sans-serif;;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #614444;
     background-color: #D9CFAC;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+/*--------------
+input ::placeholder {
+    color: #614444 !important; 
+  }
+-----------*/
 
 .form-control:focus {
     border-color: #614444;

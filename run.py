@@ -112,7 +112,6 @@ def signup():
 
 @app.route("/profile/<chef>", methods=["GET", "POST"])
 def profile(chef):
-    
     chef = mongo.db.chefs.find_one(
         {"email": session["chef"]})
     return render_template("profile.html", chef=chef)
@@ -128,7 +127,10 @@ def logout():
 
 @app.route("/create_recipe")
 def create_recipe():
-    return render_template("createrecipe.html")
+    recipes = mongo.db.recipes.find().sort("title", 1)
+    return render_template("create_recipe.html", recipes=recipes)
+
+
 if __name__ == "__main__":
     app.run(
             host=os.environ.get("IP", "0.0.0.0"),

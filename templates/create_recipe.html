@@ -1,21 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="light-blue-text text-darken-4 center-align">Create recipe/h3>
-
-    <div class="row">
-        <form class="col s12" method="POST" action="">
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user-circle prefix light-blue-text text-darken-4"></i>
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">Title</label>
+<section class="details-container">
+    <div class="text-center">
+        <div class="center-form responsive">
+            <h3>Create recipe</h3>
+            <form>
+                <div class="padding">
+                    <input id="title" name="title" minlength="5" maxlength="50" 
+                    type="text" class="form-control" placeholder="Recipe Title" required />
                 </div>
-                <div class="input-field col s12">
-                    <i class="fas fa-phone prefix light-blue-text text-darken-4"></i>
-                    <input id="icon_telephone" type="tel" class="validate">
-                    <label for="icon_telephone">Telephone</label>
+                <div class="padding">
+                    <textarea id="description" name="description" type="text" class="form-control"
+                    placeholder="Description" required /></textarea>
                 </div>
-            </div>
-        </form>
-    </div>
+                <div class="padding">
+                    <textarea id="ingredients" name="ingredients" class="form-control" rows="2" minlength="5"
+                    placeholder="Ingredient List (One per line)" required></textarea>
+                </div>
+                <div class="padding">
+                    <textarea id="instructions" name="instructions" class="form-control" rows="2" minlength="5"
+                    placeholder="Instructions (One per line)" required></textarea>
+                </div>
+                <div class="padding">
+                    <input id="image_url" name="image_url" class="form-control" type="url" placeholder="Paste Image Url Here">
+                </div>
+                <div class="form-row text-center">
+                    <div class="col">
+                        <button type="submit" class="btn btn-success" data-toggle="modal"
+                        data-target="submitButton">Create Recipe</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+</section>
 {% endblock %}

@@ -29,7 +29,10 @@
 					</li>
 					{% if session.chef %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{ url_for('get_recipes') }}">New Recipes</a>
+						<a class="nav-link" href="{{ url_for('get_recipes') }}">Recipes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('create_recipe') }}">Create Recipe</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url_for('profile', chef=session['chef']) }}">My Account</a>
@@ -95,19 +98,19 @@
 							</a>
 						</li>
 					</ul>
-					<p class="copyright">Copyright &copy; Your Website 2020</p>
+					<p class="copyright">Copyright &copy; Your Website <span id="copyright"></span></p>
 				</div>
 			</div>
 		</div>
 	</footer>
 
-	<!-- Bootstrap core JavaScript -->
+
 	<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-	<!-- Custom scripts for this template -->
 	<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 
+	<script>
+        $("#copyright").text(new Date().getFullYear());
+    </script>
 </body>
-
 </html>
