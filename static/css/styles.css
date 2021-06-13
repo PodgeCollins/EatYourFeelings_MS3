@@ -86,7 +86,7 @@ img {
 .rottenteeth{
     border-radius: .25rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
-    align-items: center;
+    margin-left: 200px;
 }
 
 .container-fluid {
@@ -99,6 +99,7 @@ img {
 }
 
 .row {
+    align-items: center;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -332,7 +333,7 @@ footer .copyright {
 
 .center-form {
     padding-top: 10px;
-    margin: 0 auto;
+    margin: auto;
     max-width: 70%;
 }
 
