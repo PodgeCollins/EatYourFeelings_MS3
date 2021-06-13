@@ -21,7 +21,8 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    return render_template("index.html", header="Index Page")
+    prep = mongo.db.preparation.find()
+    return render_template("index.html", preparation=prep)
 
 
 @app.route("/get_recipes")
@@ -65,6 +66,8 @@ def login():
                 existing_email["password"], request.form.get("password")):
                     session["chef"] = request.form.get("email").lower()
                     flash("Welcome back, we've missed you!")
+                    return redirect(url_for(
+                        "profile", chef=["chef"]))
             else:
                 
                 flash("Incorrect Email and/or Password")
@@ -90,8 +93,8 @@ def signup():
             return redirect(url_for("signup"))
 
         signup = {
-            "firstName": request.form.get("firstname").lower(),
-            "lastName": request.form.get("lastname").lower(),
+            "firstName": request.form.get("firstname"),
+            "lastName": request.form.get("lastname"),
             "email": request.form.get("email").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
@@ -101,9 +104,26 @@ def signup():
         session["chef"] = request.form.get("email").lower()
         flash("Welcome to the Family, {}!".format(
             request.form.get("firstname")))
+        return redirect(url_for("profile", chef=["chef"]))
             
         
     return render_template("signup.html", header="Create an Account!")
+
+
+@app.route("/profile/<chef>", methods=["GET", "POST"])
+def profile(chef):
+    
+    chef = mongo.db.chefs.find_one(
+        {"email": session["chef"]})
+    return render_template("profile.html", chef=chef)
+
+
+@app.route("/logout")
+def logout():
+    
+    flash("Cya Later, We'll Miss You!")
+    session.pop("chef")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":

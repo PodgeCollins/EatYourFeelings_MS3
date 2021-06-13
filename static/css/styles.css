@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@100;200;300;400;500&display=swap');
-
 /*-------------------------------Extra Stylings--------------*/
 body {
     background-image: url(../img/background.jpg);
@@ -7,13 +6,19 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 p {
     line-height: 1.5;
     font-family: Raleway, serif;
     color: #D9CFAC;
-    text-align: center;
+}
+
+form p {
+    margin-top: 50px;
 }
 
 a {
@@ -36,31 +41,34 @@ ul, ol{
 
 h1,
 h2,
-h3,
 h5,
 h6 {
     font-family: Lobster, sans-serif;
-    color: #614444;
-    text-shadow: 1px 0.1px 6px rgb(197 189 114);
+    color: #D9CFAC;
+    margin-top: 25px;
+    text-align: center;
+}
+
+h3{
+    font-family: Lobster, sans-serif;
+    color: #D9CFAC;
+    margin-top: 0px;
 }
 
 h4{
     font-family: Lobster, sans-serif;
-    color: #D9CFAC;
-    text-shadow: 1px 0.1px 6px rgb(197 189 114);
-    margin-top: 50px;
+    color: #614444;
 }
 
 .flashes {
+    margin-top: 100px;
     margin-right: 25px;
     display: block;
     text-align: center;
     list-style-type: none;
     color: #D9CFAC;
-    font-family: Raleway, sans-serif
-
+    font-family: Raleway, sans-serif;
 }
-
 
 i {
     color: #D9CFAC;
@@ -70,13 +78,36 @@ img {
     width: 100%;
     height: 300px;
     margin-top: 40px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.rottenteeth{
     border-radius: .25rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
-    align-self: center;
+    align-items: center;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-bottom: 150px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px; 
+    margin-left: 0px; 
 }
 
 /*-------------------------------Navigation Bar--------------*/
-
 #mainNav {
     border-bottom: 1px solid #e9ecef;
     background-color: #614444;
@@ -132,18 +163,13 @@ img {
     }
 }
 
-
 /*-------------------------------Header Section--------------*/
-
 header.glutton {
 
     background-attachment: scroll;
     position: relative;
 
 }
-
-
-
 
 header.glutton .site-heading {
     padding-top: 115px;
@@ -152,11 +178,10 @@ header.glutton .site-heading {
 @media only screen and (min-width:768px) {
 
 
-    header.glutton .site-heading {
+header.glutton .site-heading {
         padding-top: 115px;
     }
 }
-
 
 header.glutton .site-heading {
     text-align: center
@@ -174,10 +199,7 @@ header.glutton .site-heading {
 
 }
 
-
-
 /*-----------------------------Index Page----------*/
-
 .card {
     width: 100%;
     margin-top: 100px;
@@ -215,7 +237,6 @@ header.glutton .site-heading {
 .card .title-card a:hover {
     color: #614444;
     text-decoration: underline;
-
 }
 
 .title-card p {
@@ -223,18 +244,47 @@ header.glutton .site-heading {
     margin-bottom: 60px;
 }
 
-.details-container {
-    width: 60%;
+.home-container {
+    width: 80%;
+    margin-top: 150px;
+    margin-bottom: 200px;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    background-color: rgba(97, 68, 68, 0.900);
+    background-clip: border-box;
+    border: 1px solid rgba(133, 81, 81, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
 }
 
+.details-container {
+    width: 60%;
+    margin-top: 150px;
+    margin-bottom: 200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(97, 68, 68, 0.900);
+    background-clip: border-box;
+    border: 1px solid rgba(133, 81, 81, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
+}
 
-.contact-card {
+.details-container, .center-form{
+    text-align: center;
+    padding-top: 0px;
+}
+
+.recipe-container {
     height: 100%;
-    margin-top: 125px;
+    margin-top: 200px;
+    margin-bottom: 200px;
     padding: 25px;
     min-width: 0;
     background-color: rgba(97, 68, 68, 0.900);
@@ -246,14 +296,14 @@ header.glutton .site-heading {
 
 }
 
-
 /*-------------------------------Footer--------------*/
-
 footer {
     background-color: #614444 !important;
     position: relative;
-    height: 120px;
-    margin-top: 200px;
+    width: 100%;
+    max-height: 120px;
+    bottom: 0;
+    flex: 1;
 }
 
 .padding {
@@ -305,7 +355,7 @@ input {
 /*--------------------------Btn-------------------------*/
 
 button[type="submit"] {
-    margin-top: 15px;
+    margin-top: 25px;
     margin-bottom: 20px;
     color: #D9CFAC;
 }

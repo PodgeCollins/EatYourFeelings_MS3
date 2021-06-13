@@ -1,24 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<header class="glutton">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="site-heading">
-                    <h1>Pratice Recipe Page</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 {% for gred in ingredients %}
 <section class="container-fluid">
-    <div class="text-center">
-        <div class="contact-card">
+    <div>
+        <div class="recipe-container">
             <div class="row">
                 <div class="col-md-6"><img src="/static/img/brownie.jpg" alt="">
-                    <h4>{{ gred.title }}</h4>
+                    <h2 class="text-center">{{ gred.title }}</h2>
                     <ol>
                         <li><p>{{ gred.one }}</p></li>
                         <li><p>{{ gred.two }}</p></li>
@@ -34,7 +22,7 @@
 {% endfor %}
 {% for prep in preparation %}
                     <div class="col-md-6">
-                        <h4>{{ prep.prep_name }}</h4>
+                        <h2 class="text-center">{{ prep.prep_name }}</h2>
                     <ol>
                         <li><p>{{ prep.step1 }}</p></li>
                         <li><p>{{ prep.step2 }}</p></li>
@@ -49,7 +37,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>
 {% endfor %}
 {% endblock %}

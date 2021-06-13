@@ -1,31 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<header class="glutton">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 md-8 offset-m2">
-                <div class="site-heading">
-                    <h1>{{ header }}</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 <section class="details-container">
-    <div class="contact-card">
-        <div class="center-form">
+    <div class="text-center">
+            <div class="center-form responsive">
             <form method="POST" action="{{ url_for('signup') }}">
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-
-                <ul class="flashes">
-                    {% for message in messages %}
-                    <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-                {% endwith %}
                 <p>Enter Details below for Full Site Access</p>
                 <div class="padding">
                     <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name"
@@ -44,14 +22,13 @@
                 </div>
                 <div class="form-row text-center">
                     <div class="col">
-                        <button type="submit" class="btn btn-success" data-toggle="modal" data-target="submitButton">Log
-                            In</button>
+                        <button type="submit" class="btn btn-success" data-toggle="modal" data-target="submitButton">Sign
+                            Up</button>
                     </div>
                 </div>
                 <p>Already a member? Sign In <a href="{{ url_for('login') }}">Here</a></p>
             </form>
         </div>
-    </div>
     </div>
     </div>
 </section>

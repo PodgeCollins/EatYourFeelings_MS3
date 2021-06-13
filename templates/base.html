@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<header>
 	<nav id="mainNav" class=" fixed-top navbar navbar-expand-lg navbar-light">
 		<div class="container">
 			<a class="navbar-brand" href="{{ url_for('index') }}">Eat Your Feelings</a>
@@ -26,34 +27,57 @@
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url_for('index') }}">Home</a>
 					</li>
+					{% if session.chef %}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url_for('get_recipes') }}">New Recipes</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('profile', chef=session['chef']) }}">My Account</a>
+					</li>
+					<!----------
+					<li class="nav-item">
 						<a class="nav-link" href="{{ url_for('recipes') }}">Recipes</a>
 					</li>
+					----------->
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+					</li>
+					{% else %}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url_for('login') }}">Log In</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a>
 					</li>
+					{% endif %}
 				</ul>
 			</div>
 		</div>
 	</nav>
+</header>
 
 
-	<!-- Page Header -->
 
 
 	<!-- Main Content -->
+<section>
 	<div class="container">
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<div class="flashes">
+					<h4>{{ message }}</h4>
+				</div>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+		
 
 		{% block content %}
 		{% endblock %}
 
 	</div>
+</section>
 
 
 

@@ -1,32 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<header class="glutton">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 md-8 offset-m2">
-                <div class="site-heading">
-                    <h1>{{ header }}</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 <section class="details-container">
     <div class="text-center">
-        <div class="contact-card">
             <div class="center-form responsive">
                 <form method="POST" action="{{ url_for('login') }}">
-                    {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-
-                    <ul class="flashes">
-                        {% for message in messages %}
-                        <li>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                    {% endwith %}
                     <p>Log in for Full Site Access</p>
                     <div class="padding">
                         <input type="email" name="email" id="email" class="form-control" placeholder="Email" required />
@@ -44,7 +21,6 @@
                     <p>Not a Member? Join the Community <a href="{{ url_for('signup') }}">Here</a></p>
                 </form>
             </div>
-        </div>
     </div>
     </div>
 </section>
