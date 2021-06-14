@@ -20,8 +20,9 @@
         <div class="row text-center">
             <div class="col-md-6">
                 <div class="card">
-                    <a href="{{ url_for('instructions', recipe_id=recipe._id) }}"><img src="{{ recipe.image_url }}"
+                    <a href="{{ url_for('instructions', recipe_id=recipe._id) }}"><img src="{{ recipe.image_url }}" 
                             alt="background" class="image-responsive"></a>
+                    
                     <div class="container">
                         <div class="title-card">
                             <a href="{{ url_for('instructions', recipe_id=recipe._id) }}">
@@ -31,7 +32,7 @@
                         <div class="title-card">
                             <p>{{ recipe.description }}</p>
                         </div>
-                        <p>by: {{ recipe.created_by }}</p>
+                        <p class="name-padding">by: {{ recipe.created_by }}</p>
                     </div>
                 </div>
             </div>
@@ -51,7 +52,7 @@
                                 {{ recipe.description }}
                             </p>
                         </div>
-                        <p>by: {{ recipe.created_by }}</p>
+                        <p class="name-padding">by: {{ recipe.created_by }}</p>
                     </div>
                 </div>
             </div>

@@ -44,18 +44,6 @@ def instructions(recipe_id):
     return render_template("instructions.html", recipes=recipes)
 
 
-@app.route("/recipes/<ingredients_prep>")
-def recipes_recipe(ingredients_prep):
-    recipe = {}
-    with open("data/recipes.json", "r") as json_data:
-        data=json.load(json_data)
-        for obj in data:
-            if obj["url"] == ingredients_prep:
-                recipe = obj
-    return render_template(
-        "ingredients.html", ingredients=recipe, header="Lets Get Cooking")
-
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -149,9 +137,26 @@ def create_recipe():
 
 @app.route("/edit_recipe/<edit_id>", methods=["GET", "POST"])
 def edit_recipe(edit_id):
+    if request.method == "POST":
+        recipe = {
+            "title": request.form.get("title"),
+            "description": request.form.get("description"),
+            "ingredients": request.form.get("ingredients"),
+            "instructions": request.form.get("instructions"),
+            "image_url": request.form.get("image_url"),
+            "created_by": session["chef"]
+        }
+        mongo.db.recipes.update({"_id": ObjectId(edit_id)}, recipe)
+        flash("Recipe Successfully Updated")
     recipes = mongo.db.recipes.find_one({"_id": ObjectId(edit_id)})
-    recipes = mongo.db.recipes.find().sort("title", 1)
     return render_template("edit_recipe.html", recipes=recipes)
+
+@app.route("/delete_recipe/<edit_id>")
+def delete_recipe(edit_id):
+    mongo.db.recipes.remove({"_id": ObjectId(edit_id)})
+    flash("Task Successfully Deleted")
+    return redirect(url_for("get_recipes"))
+
 
 if __name__ == "__main__":
     app.run(

@@ -414,6 +414,10 @@ i {
     transition: 0.3s;
 }
 
+.name-padding {
+    margin-top: 15px;
+}
+
 footer .list-inline {
     margin: 0;
     padding: 0
