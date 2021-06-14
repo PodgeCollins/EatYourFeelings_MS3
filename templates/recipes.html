@@ -13,15 +13,16 @@
         </div>
     </div>
 </section>
-{% for recipe in recipes %}
-{% if loop.index % 2 != 0 %}
+
+
 <section>
     <div class="container-fluid">
         <div class="row text-center">
+            {% for recipe in recipes %}
             <div class="col-md-6">
                 <div class="card">
                     <a href="{{ url_for('instructions', recipe_id=recipe._id) }}"><img src="{{ recipe.image_url }}" 
-                            alt="background" class="image-responsive"></a>
+                            alt="background" class="image-responsive" onerror="this.src='https://raw.githubusercontent.com/PodgeCollins/EatYourFeelings_MS3/master/static/img/teeth.png';"></a>
                     
                     <div class="container">
                         <div class="title-card">
@@ -32,34 +33,13 @@
                         <div class="title-card">
                             <p>{{ recipe.description }}</p>
                         </div>
-                        <p class="name-padding">by: {{ recipe.created_by }}</p>
+                        
                     </div>
                 </div>
             </div>
-            {% else %}
-            <div class="col-md-6">
-                <div class="card">
-                    <a href="{{ url_for('instructions', recipe_id=recipe._id) }}"><img src="{{ recipe.image_url }}"
-                            alt="background" class="image-responsive"></a>
-                    <div class="container">
-                        <div class="title-card">
-                            <a href="{{ url_for('instructions', recipe_id=recipe._id) }}">
-                                <h4>{{ recipe.title }}</h4>
-                            </a>
-                        </div>
-                        <div class="title-card">
-                            <p>
-                                {{ recipe.description }}
-                            </p>
-                        </div>
-                        <p class="name-padding">by: {{ recipe.created_by }}</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
-    {% endif %}
-    {% endfor %}
 </section>
 
 {% endblock %}

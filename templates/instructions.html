@@ -17,7 +17,7 @@
         <div class="card">
             <div class="row">
                 <div class="col-md-6"><img src="{{ recipes.image_url }}" alt="">
-                    <p>by: {{ recipes.created_by }}</p>
+                    <p>by: {{ recipes.owner }}</p>
                     <h3>Ingredients</h3>
 
                     {% for line in recipes.ingredients.splitlines() %}

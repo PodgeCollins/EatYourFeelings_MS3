@@ -38,7 +38,7 @@ def get_recipes():
     Returns:
     template: recipes.html.
     """
-    recipe = list(mongo.db.recipes.find())
+    recipe = list(mongo.db.recipes.find().sort("_id", -1))
     return render_template("recipes.html", header="Perfect Recipes", subheader="for Gluttony & Self Loathing", recipes=recipe)
 
 
@@ -67,14 +67,15 @@ def login():
     """
     if request.method == "POST":
         
-        existing_email = mongo.db.chefs.find_one(
+        user = mongo.db.chefs.find_one(
             {"email": request.form.get("email").lower()})
 
-        if existing_email:
+        if user:
             
             if check_password_hash(
-                existing_email["password"], request.form.get("password")):
+                user["password"], request.form.get("password")):
                     session["chef"] = request.form.get("email").lower()
+                    session["firstName"] = user["firstName"]
                     flash("Welcome back, we've missed you!")
                     return redirect(url_for(
                         "profile", chef=["chef"]))
@@ -120,6 +121,7 @@ def signup():
 
         
         session["chef"] = request.form.get("email").lower()
+        session["firstName"] = request.form.get("firstname")
         flash("Welcome to the Family, {}!".format(
             request.form.get("firstname")))
         return redirect(url_for("index", chef=["chef"]))
@@ -171,7 +173,8 @@ def create_recipe():
             "ingredients": request.form.get("ingredients"),
             "instructions": request.form.get("instructions"),
             "image_url": request.form.get("image_url"),
-            "created_by": session["chef"]
+            "created_by": session["chef"],
+            "owner": session["firstName"]
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
