@@ -11,39 +11,38 @@
             </div>
         </div>
     </div>
-</section>
+  </section>
 <section class="details-container">
     <div class="text-center">
         <div class="center-form responsive">
-            <h3>Create recipe</h3>
-            <form method="POST" action="{{ url_for('create_recipe') }}">
+            <h3>Edit Recipe</h3>
+            <form method="POST" action="{{ url_for('edit_recipe', edit_id=recipes._id) }}">
                 <div class="padding">
-                    <input id="title" name="title" minlength="5" maxlength="50" type="text" class="form-control"
-                        placeholder="Recipe Title" required />
+                    <input id="title" name="title" minlength="5" maxlength="50" 
+                    type="text" class="form-control" placeholder="Recipe Title" required />
                 </div>
                 <div class="padding">
                     <textarea id="description" name="description" type="text" class="form-control"
-                        placeholder="Description" required /></textarea>
+                    placeholder="Description" required /></textarea>
                 </div>
                 <div class="padding">
                     <textarea id="ingredients" name="ingredients" class="form-control" rows="2" minlength="5"
-                        placeholder="Ingredient List (One per line)" required></textarea>
+                    placeholder="Ingredient List (One per line)" required></textarea>
                 </div>
                 <div class="padding">
                     <textarea id="instructions" name="instructions" class="form-control" rows="2" minlength="5"
-                        placeholder="Instructions (One per line)" required></textarea>
+                    placeholder="Instructions (One per line)" required></textarea>
                 </div>
                 <div class="padding">
-                    <input id="image_url" name="image_url" class="form-control" type="url"
-                        placeholder="Paste Image Url Here">
+                    <input id="image_url" name="image_url" class="form-control" type="url" placeholder="Paste Image Url Here">
                 </div>
                 <div class="form-row text-center">
                     <div class="col">
                         <button type="submit" class="btn btn-success" data-toggle="modal"
-                            data-target="submitButton">Create Recipe</button>
+                        data-target="submitButton">Edit Recipe</button>
                     </div>
                 </div>
-
+                
             </form>
         </div>
 </section>

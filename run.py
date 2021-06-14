@@ -21,24 +21,27 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    prep = mongo.db.preparation.find()
-    return render_template("index.html", preparation=prep)
+    recipe = mongo.db.recipes.find()
+    return render_template("index.html", header="Important Notice", recipes=recipe)
 
 
 @app.route("/get_recipes")
 def get_recipes():
-    prep = mongo.db.preparation.find()
-    gred = mongo.db.ingredients.find()
-    return render_template("newrecipes.html", preparation=prep, ingredients=gred)
+    recipe = list(mongo.db.recipes.find())
+    return render_template("recipes.html", header="Perfect Recipes", subheader="for Gluttony & Self Loathing", recipes=recipe)
 
 
-@app.route("/recipes")
-def recipes():
-    data = []
-    with open("data/recipes.json", "r") as json_data:
-        data = json.load(json_data)
-    return render_template(
-        "recipes.html", header="Perfect Recipes",  subheader="for Gluttony & Self Loathing", recipe=data)
+@app.route("/instructions/<recipe_id>")
+def instructions(recipe_id):
+    """
+    Display view_sandwich page.
+    Fetch sandwich by database id from
+    MongoDB sandwiches collection.
+    Returns:
+    template: view_sandwich.html.
+    """
+    recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("instructions.html", recipes=recipes)
 
 
 @app.route("/recipes/<ingredients_prep>")
@@ -67,7 +70,7 @@ def login():
                     session["chef"] = request.form.get("email").lower()
                     flash("Welcome back, we've missed you!")
                     return redirect(url_for(
-                        "profile", chef=["chef"]))
+                        "index", chef=["chef"]))
             else:
                 
                 flash("Incorrect Email and/or Password")
@@ -78,7 +81,7 @@ def login():
             flash("Incorrect Email and/or Password")
             return redirect(url_for("login"))
     return render_template(
-        "login.html", header="Log In Below",  subheader="We've Missed You!")
+        "login.html", header="Log In!")
 
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -104,7 +107,7 @@ def signup():
         session["chef"] = request.form.get("email").lower()
         flash("Welcome to the Family, {}!".format(
             request.form.get("firstname")))
-        return redirect(url_for("profile", chef=["chef"]))
+        return redirect(url_for("index", chef=["chef"]))
             
         
     return render_template("signup.html", header="Create an Account!")
@@ -114,7 +117,7 @@ def signup():
 def profile(chef):
     chef = mongo.db.chefs.find_one(
         {"email": session["chef"]})
-    return render_template("profile.html", chef=chef)
+    return render_template("profile.html", header="This is Chef Master,", chef=chef)
 
 
 @app.route("/logout")
@@ -125,11 +128,30 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/create_recipe")
+@app.route("/create_recipe", methods=["GET", "POST"])
 def create_recipe():
-    recipes = mongo.db.recipes.find().sort("title", 1)
-    return render_template("create_recipe.html", recipes=recipes)
+    if request.method == "POST":
+        recipe = {
+            "title": request.form.get("title"),
+            "description": request.form.get("description"),
+            "ingredients": request.form.get("ingredients"),
+            "instructions": request.form.get("instructions"),
+            "image_url": request.form.get("image_url"),
+            "created_by": session["chef"]
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe Successfully Added")
+        return redirect(url_for("get_recipes"))
+    recipe = mongo.db.recipes.find().sort("title", 1)
+    return render_template(
+        "create_recipe.html", header="What Sweets you got in Mind?", recipes=recipe)
 
+
+@app.route("/edit_recipe/<edit_id>", methods=["GET", "POST"])
+def edit_recipe(edit_id):
+    recipes = mongo.db.recipes.find_one({"_id": ObjectId(edit_id)})
+    recipes = mongo.db.recipes.find().sort("title", 1)
+    return render_template("edit_recipe.html", recipes=recipes)
 
 if __name__ == "__main__":
     app.run(
