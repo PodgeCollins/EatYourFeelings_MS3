@@ -83,6 +83,14 @@ img {
     margin-left: 0px;
 }
 
+.fourohfour{
+    font-family: raleway, sans-serif;
+    color: #614444;
+    text-align: center;
+}
+
+
+
 /*-------------------------------Navigation Bar--------------*/
 
 #mainNav {
@@ -117,7 +125,6 @@ img {
     }
 
     #mainNav .navbar-brand {
-        padding: 10px 20px;
         color: #D9CFAC;
     }
 
@@ -140,7 +147,6 @@ img {
 /*-------------------------------Log in/Sign Up Messages--------------*/
 
 .flashes {
-    margin-top: 100px;
     display: block;
     text-align: center;
     list-style-type: none;
@@ -251,8 +257,23 @@ img {
     text-decoration: underline;
 }
 
+.title-card h4{
+    color: #614444;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
 .title-card p {
     color: #614444;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+    
 }
 
 /*-------------------------------Instructions Page--------------*/

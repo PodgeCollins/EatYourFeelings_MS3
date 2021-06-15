@@ -1,5 +1,4 @@
 import os
-import json
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -39,7 +38,9 @@ def get_recipes():
     template: recipes.html.
     """
     recipe = list(mongo.db.recipes.find().sort("_id", -1))
-    return render_template("recipes.html", header="Perfect Recipes", subheader="for Gluttony & Self Loathing", recipes=recipe)
+    return render_template("recipes.html",
+    header="Perfect Recipes",
+    subheader="for Gluttony & Self Loathing", recipes=recipe)
 
 
 @app.route("/instructions/<recipe_id>")
@@ -66,21 +67,21 @@ def login():
     template: login.html if unsuccessful.
     """
     if request.method == "POST":
-        
+
         user = mongo.db.chefs.find_one(
             {"email": request.form.get("email").lower()})
 
         if user:
-            
+
             if check_password_hash(
                 user["password"], request.form.get("password")):
-                    session["chef"] = request.form.get("email").lower()
-                    session["firstName"] = user["firstName"]
-                    flash("Welcome back, we've missed you!")
-                    return redirect(url_for(
-                        "profile", chef=["chef"]))
+                session["chef"] = request.form.get("email").lower()
+                session["firstName"] = user["firstName"]
+                flash("Welcome back, we've missed you!")
+                return redirect(url_for(
+                "profile", chef=["chef"]))
             else:
-                
+
                 flash("Incorrect Email and/or Password")
                 return redirect(url_for("login"))
 
@@ -103,7 +104,7 @@ def signup():
     template: signup.html if unsuccessful.
     """
     if request.method == "POST":
-        
+
         existing_email = mongo.db.chefs.find_one(
             {"email": request.form.get("email").lower()})
 
@@ -119,14 +120,12 @@ def signup():
         }
         mongo.db.chefs.insert_one(signup)
 
-        
         session["chef"] = request.form.get("email").lower()
         session["firstName"] = request.form.get("firstname")
         flash("Welcome to the Family, {}!".format(
             request.form.get("firstname")))
         return redirect(url_for("index", chef=["chef"]))
-            
-        
+
     return render_template("signup.html", header="Create an Account!")
 
 
@@ -139,7 +138,8 @@ def profile(chef):
     """
     chef = mongo.db.chefs.find_one(
         {"email": session["chef"]})
-    return render_template("profile.html", header="This is Chef Master,", chef=chef)
+    return render_template("profile.html",
+    header="This is Chef Master,", chef=chef)
 
 
 @app.route("/logout")
@@ -181,7 +181,8 @@ def create_recipe():
         return redirect(url_for("get_recipes"))
     recipe = mongo.db.recipes.find().sort("title", 1)
     return render_template(
-        "create_recipe.html", header="What Sweets you got in Mind?", recipes=recipe)
+        "create_recipe.html",
+        header="What Sweets you got in Mind?", recipes=recipe)
 
 
 @app.route("/edit_recipe/<edit_id>", methods=["GET", "POST"])
@@ -206,7 +207,7 @@ def edit_recipe(edit_id):
         mongo.db.recipes.update({"_id": ObjectId(edit_id)}, recipe)
         flash("Recipe Successfully Updated")
         return redirect(url_for("get_recipes"))
-    
+
     recipes = mongo.db.recipes.find_one({"_id": ObjectId(edit_id)})
     return render_template("edit_recipe.html", recipes=recipes)
 
@@ -220,8 +221,18 @@ def delete_recipe(edit_id):
     template: redirects to recipes.html
     """
     mongo.db.recipes.remove({"_id": ObjectId(edit_id)})
-    flash("Task Successfully Deleted")
+    flash("Recipe Successfully Deleted")
     return redirect(url_for("get_recipes"))
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+    Custom 404 error page.
+    Returns:
+    template: redirects to 404.html
+    """
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":
