@@ -134,7 +134,7 @@ img {
 .index-container {
     width: 80%;
     margin-top: 50px;
-    margin-bottom: 100px;
+    
     padding: 15px;
     margin-right: auto;
     margin-left: auto;
@@ -272,6 +272,7 @@ form p {
 .login-container {
     width: 40%;
     padding: 10px 15px 15px 15px;
+    margin-bottom: 120px;
     margin-right: auto;
     margin-left: auto;
     background-color: rgba(97, 68, 68, 0.900);
@@ -307,6 +308,22 @@ form p {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
     transition: 0.3s;
 }
+
+.edit-container {
+    width: 40%;
+    padding: 10px 15px 15px 15px;
+    margin-top:50px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(97, 68, 68, 0.900);
+    background-clip: border-box;
+    border: 1px solid rgba(133, 81, 81, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
+}
+
+
 
 .center-form {
     margin: auto;

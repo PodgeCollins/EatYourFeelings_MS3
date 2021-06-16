@@ -26,7 +26,8 @@ def index():
     template: index.html.
     """
     recipe = mongo.db.recipes.find()
-    return render_template("index.html", header="Disclaimer", subheader="Please Read Before You Proceed", recipes=recipe)
+    return render_template("index.html", header="Disclaimer",
+    subheader="Please Read Before You Proceed", recipes=recipe)
 
 
 @app.route("/get_recipes")
@@ -133,13 +134,19 @@ def signup():
 def profile(chef):
     """
     Displays profile page, retreives session user's firstName from database.
+    Show recipes created by account holder.
     Returns:
     template: profile.html if login successful.
     """
     chef = mongo.db.chefs.find_one(
         {"email": session["chef"]})
+
+    if session["chef"]:
+        recipes = list(
+            mongo.db.recipes.find({"created_by": chef}))
+
     return render_template("profile.html",
-    header="This is Chef Master,", chef=chef)
+    header="This is Chef Master,", chef=chef, recipes=recipes)
 
 
 @app.route("/logout")
