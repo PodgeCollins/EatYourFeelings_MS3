@@ -6,16 +6,17 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 mx-auto">
                 <div class="site-heading">
-                    <h1>{{ header }}</h1>
-                    <h2>{{ subheader }}</h2>
+                    <h1 class="lobster-brown">{{ header }}</h1>
+                    <h2 class="lobster-brown">{{ subheader }}</h2>
                 </div>
             </div>
         </div>
+
     </div>
 </section>
-<section class="details-container">
+<section class="login-container">
     <div class="text-center">
-            <div class="center-form responsive">
+        <div class="signup-center-form responsive">
             <form method="POST" action="{{ url_for('signup') }}">
                 <p>Enter Details below for Full Site Access</p>
                 <div class="padding">
@@ -35,7 +36,8 @@
                 </div>
                 <div class="form-row text-center">
                     <div class="col">
-                        <button type="submit" class="btn btn-success" data-toggle="modal" data-target="submitButton">Sign
+                        <button type="submit" class="btn btn-success" data-toggle="modal"
+                            data-target="submitButton">Sign
                             Up</button>
                     </div>
                 </div>

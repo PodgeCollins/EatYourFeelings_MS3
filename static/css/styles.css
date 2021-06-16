@@ -1,18 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@100;200;300;400;500&display=swap');
 
-/*-------------------------------Extra Stylings--------------*/
-
 body {
     background-image: url(../img/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
 }
 
+/*-------------------------------------------------------Font Stylings--------------*/
 p {
     line-height: 1.5;
     font-family: Raleway, serif;
@@ -38,76 +35,58 @@ ul {
     color: #D9CFAC;
 }
 
-h1,
-h2,
-h4 {
+.lobster-brown {
     font-family: Lobster, sans-serif;
     color: #614444;
     text-align: center;
 }
 
-h3,
-h5,
-h6 {
+.lobster-yellow {
     font-family: Lobster, sans-serif;
     color: #D9CFAC;
-    margin-top: 0px;
 }
+
+/*-------------------------------------------------------Extra Stylings--------------*/
 
 img {
     width: 100%;
     height: 300px;
     align-self: center;
     margin-top: 5px;
-    border: 1px solid rgba(133, 81, 81, 0.125);
     border-radius: .25rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
     transition: 0.3s;
-
 }
 
 .container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
     padding-bottom: 15px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
-.row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: 0px;
-    margin-left: 0px;
-}
-
-.fourohfour{
-    font-family: raleway, sans-serif;
-    color: #614444;
-    text-align: center;
-}
-
-
-
-/*-------------------------------Navigation Bar--------------*/
+/*-------------------------------------------------------Navigation Bar--------------*/
 
 #mainNav {
     border-bottom: 1px solid #e9ecef;
     background-color: #614444;
+    z-index:1;
 }
 
 #mainNav .navbar-brand {
     color: #D9CFAC;
-    font-family: Lobster, sans-serif
+    font-family: Lobster, sans-serif;
 }
 
 #mainNav .navbar-toggler {
     font-size: 12px;
     padding: 13px;
     text-transform: uppercase;
-    color: #D9CFAC
+    color: #D9CFAC;
+    border-color: rgba(0,0,0,0);
+}
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 0rem;
 }
 
 #mainNav .navbar-nav>li.nav-item>a {
@@ -115,46 +94,10 @@ img {
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #D9CFAC;
-    font-family: Raleway, sans-serif
-}
-
-@media only screen and (min-width:992px) {
-    #mainNav {
-        border-bottom: 1px solid transparent;
-        background-color: #614444;
-    }
-
-    #mainNav .navbar-brand {
-        color: #D9CFAC;
-    }
-
-    #mainNav .navbar-brand:focus,
-    #mainNav .navbar-brand:hover {
-        color: #f3da7e;
-    }
-
-    #mainNav .navbar-nav>li.nav-item>a {
-        padding: 10px 20px;
-        color: #D9CFAC;
-    }
-
-    #mainNav .navbar-nav>li.nav-item>a:focus,
-    #mainNav .navbar-nav>li.nav-item>a:hover {
-        color: #f3da7e;
-    }
-}
-
-/*-------------------------------Log in/Sign Up Messages--------------*/
-
-.flashes {
-    display: block;
-    text-align: center;
-    list-style-type: none;
-    color: #D9CFAC;
     font-family: Raleway, sans-serif;
 }
 
-/*-------------------------------Page Titles--------------*/
+/*----------------------------------------------------Titles--------------*/
 
 .glutton {
     background-attachment: scroll;
@@ -163,7 +106,10 @@ img {
 
 
 .glutton .site-heading {
-    text-align: center
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.1;
+    display: block;
 }
 
 .glutton .site-heading h1 {
@@ -171,16 +117,9 @@ img {
     margin-top: 0
 }
 
-.glutton .site-heading {
-    font-size: 24px;
-    line-height: 1.1;
-    display: block;
+/*-------------------------------------------------------Index Page----------------*/
 
-}
-
-/*-----------------------------Index Page----------*/
-
-.home-container {
+.index-container {
     width: 80%;
     margin-top: 50px;
     margin-bottom: 100px;
@@ -196,47 +135,19 @@ img {
     transition: 0.3s;
 }
 
-.rottenteeth {
-    border-radius: .25rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
-}
-
-.recipe-container {
-    height: 100%;
-    margin-top: 200px;
-    margin-bottom: 200px;
-    padding: 25px;
-    min-width: 0;
-    background-color: rgba(97, 68, 68, 0.900);
-    background-clip: border-box;
-    border: 1px solid rgba(133, 81, 81, 0.125);
-    border-radius: .25rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
-    transition: 0.3s;
-
-}
-
-/*-------------------------------Recipes Page--------------*/
+/*-------------------------------------------------------Recipes Page--------------*/
 
 .card {
     width: 100%;
     margin-top: 20px;
     padding: 15px;
-    position: relative;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
     background-color: rgba(97, 68, 68, 0.900);
-    background-clip: border-box;
     border: 1px solid rgba(133, 81, 81, 0.125);
-    border-radius: .25rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
     transition: 0.3s;
 }
 
-.card .title-card {
+.title-card {
     margin: 15px 0px 0px 0px;
     position: relative;
     display: flex;
@@ -252,33 +163,62 @@ img {
     transition: 0.3s;
 }
 
-.card .title-card a:hover {
+.title-card a:hover {
     color: #614444;
     text-decoration: underline;
 }
 
-.title-card h4{
+.title-card h4 {
     color: #614444;
     overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 1; /* number of lines to show */
-   -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
-.title-card p {
+.description-card {
+    margin: 15px 0px 0px 0px;
+    position: relative;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #D9CFAC;
+    background-clip: border-box;
+    border: 1px solid rgba(133, 81, 81, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
+}
+
+.description-card p {
     color: #614444;
     overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 2; /* number of lines to show */
-   -webkit-box-orient: vertical;
-    
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+}
+/*-------------------------------------------------------Recipe Page--------------*/
+
+.recipe-container {
+    width: 80%;
+    margin-top: 50px;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(97, 68, 68, 0.900);
+    background-clip: border-box;
+    border: 1px solid rgba(133, 81, 81, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
 }
 
-/*-------------------------------Instructions Page--------------*/
-
-/*-------------------------------Profile Page--------------*/
+/*-------------------------------------------------------Profile Page--------------*/
 
 .profile-container {
     width: 60%;
@@ -296,14 +236,32 @@ img {
     transition: 0.3s;
 }
 
-/*-------------------------------Log In/Sign Up/Create_Recipe Page--------------*/
+/*-------------------------------------------------------Log In/Sign Up/Create/Edit Pages--------*/
 
-.details-container {
-    width: 60%;
+form p {
     margin-top: 50px;
-    margin-bottom: 200px;
-    padding-right: 15px;
-    padding-left: 15px;
+}
+
+.form-control {
+    font-family: raleway, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #614444;
+    background-color: #D9CFAC;
+}
+
+.form-control:focus {
+    border-color: #614444;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #705050;
+    color: #614444;
+    background-color: #D9CFAC;
+}
+
+.login-container {
+    width: 40%;
+    margin-top: 50px;
+    padding: 10px 15px 15px 15px;
     margin-right: auto;
     margin-left: auto;
     background-color: rgba(97, 68, 68, 0.900);
@@ -314,54 +272,73 @@ img {
     transition: 0.3s;
 }
 
-.details-container,
 .center-form {
-    text-align: center;
-    padding-top: 0px;
-}
-
-.center-form {
-    padding-top: 10px;
     margin: auto;
     max-width: 70%;
 }
 
-form p {
-    margin-top: 50px;
+.signup-center-form {
+    margin: auto;
+    max-width: 70%;
 }
 
-.form-control {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
+.padding {
+    margin-top: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
+}
+
+/*-------------------------------------------------------404 Page
+
+.fourohfour{
     font-family: raleway, sans-serif;
-    ;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
     color: #614444;
-    background-color: #D9CFAC;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-align: center;
 }
 
-/*--------------
-input ::placeholder {
-    color: #614444 !important; 
-  }
------------*/
+----------------------------------------------------------------*/
 
-.form-control:focus {
-    border-color: #614444;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #705050;
-    color: #614444;
-    background-color: #D9CFAC;
+/*-------------------------------------------------------Footer--------------*/
+
+footer {
+    background-color: #614444 !important;
+    position: relative;
+    height: 120px;
+    margin-top: 460px;
 }
 
-/*--------------------------Btn-------------------------*/
+footer p {
+    margin-top: 10px;
+}
+
+footer .list-inline {
+    margin: 0;
+    padding: 0
+}
+
+footer .copyright {
+    font-size: 14px;
+    margin-bottom: 0;
+    text-align: center
+}
+
+i {
+    color: #D9CFAC;
+    font-size: 1.75em;
+    margin-top: 15px;
+}
+
+/*-------------------------------------------------------Flash Messages-------------*/
+
+.flashes {
+    display: block;
+    text-align: center;
+    list-style-type: none;
+    color: #D9CFAC;
+    font-family: Raleway, sans-serif;
+}
+
+/*-------------------------------------------------------Buttons---------------------*/
 
 button[type="submit"] {
     margin-top: 25px;
@@ -401,43 +378,117 @@ button[type="submit"] {
     box-shadow: none !important;
 }
 
-/*-------------------------------Footer--------------*/
+/*-------------------------------------------------------Media Queries---------------------*/
 
-footer {
-    background-color: #614444 !important;
-    position: relative;
-    width: 100%;
-    max-height: 120px;
-    bottom: 0;
-    flex: 1;
+@media only screen and (max-width: 600px) {
+    .glutton .site-heading h1 {
+        font-size: 50px;
+        margin-top: 0;
+    }
+    .glutton .site-heading h2 {
+        font-size: 25px;
+        margin-top: 0;
+        }
+    .center-form {
+        margin: auto;
+        max-width: 100%;
+    }
+    .signup-center-form {
+        margin: auto;
+        max-width: 80%;
+    }
+    .login-container {
+        width: 100%;
+    }
+    .description-card{
+        height: 5px;
+        visibility: hidden;
+
+    }
+    .description-card p{
+        visibility: hidden;
+
+    }
 }
 
-footer p {
-    margin-top: 15px;
+@media only screen and (min-width: 600px) {
+    .glutton .site-heading h1 {
+    font-size: 90px;
+    margin-top: 0;
+    }
+    .description-card{
+        height: 5px;
+        visibility: hidden;
+
+    }
+    .description-card p{
+        visibility: hidden;
+
+    }
 }
 
-i {
-    color: #D9CFAC;
-    margin-top: 15px;
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    
+    .description-card{
+        height: 5px;
+        visibility: hidden;
+
+    }
+    .description-card p{
+        visibility: hidden;
+
+    }
+    .signup-center-form {
+        margin: auto;
+        max-width: 80%;
+    }
+    .login-container {
+        width: 80%;
+    }
 }
 
-.padding {
-    margin-top: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
-    transition: 0.3s;
-}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    #mainNav {
+        border-bottom: 1px solid transparent;
+        background-color: #614444;
+    }
 
-.name-padding {
-    margin-top: 15px;
-}
+    #mainNav .navbar-brand {
+        color: #D9CFAC;
+    }
 
-footer .list-inline {
-    margin: 0;
-    padding: 0
-}
+    #mainNav .navbar-brand:focus,
+    #mainNav .navbar-brand:hover {
+        color: #f3da7e;
+    }
 
-footer .copyright {
-    font-size: 14px;
-    margin-bottom: 0;
-    text-align: center
+    #mainNav .navbar-nav>li.nav-item>a {
+        color: #D9CFAC;
+    }
+
+    #mainNav .navbar-nav>li.nav-item>a:focus,
+    #mainNav .navbar-nav>li.nav-item>a:hover {
+        color: #f3da7e;
+    }
+    .login-container {
+        width: 40%;
+    }
+    .description-card{
+        height: 90px;
+        visibility: visible;
+
+    }
+    .description-card p{
+        visibility: visible;
+
+    }
+    
 }
+/*---------------
+Extra large devices (large laptops and desktops, 1200px and up) 
+@media only screen and (min-width: 1200px) {
+    ...
+}
+---------------*/

@@ -6,19 +6,18 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h1>{{ header }}</h1>
+                    <h1 class="lobster-brown">{{ header }}</h1>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<section class="container-fluid">
-    <div>
-        <div class="card">
+<section class="recipe-container">
+   
             <div class="row">
                 <div class="col-md-6"><img src="{{ recipes.image_url }}" alt="">
                     <p>by: {{ recipes.owner }}</p>
-                    <h3 class="text-center">Ingredients</h3>
+                    <h3 class="lobster-yellow text-center">Ingredients</h3>
 
                     {% for line in recipes.ingredients.splitlines() %}
                     <ul>
@@ -29,7 +28,7 @@
                     {% endfor %}
                 </div>
                 <div class="col-md-6">
-                    <h3 class="text-center">Preparation</h3>
+                    <h3 class="lobster-yellow text-center">Preparation</h3>
                     {% for line in recipes.instructions.splitlines() %}
                     <ul>
                         <li>
@@ -41,14 +40,14 @@
 
                 <div class="col text-center">
                     {% if session.chef|lower == recipes.created_by|lower %}
-                <a href="{{ url_for('edit_recipe', edit_id=recipes._id) }}">
-                    <button type="submit" class="btn btn-success" data-toggle="modal"
-                        data-target="submitButton">Edit</button>
-                </a>
-                <a href="{{ url_for('delete_recipe', edit_id=recipes._id) }}">
-                    <button type="submit" class="btn btn-success" data-toggle="modal"
-                        data-target="submitButton">Delete</button>
-                </a>
+                    <a href="{{ url_for('edit_recipe', edit_id=recipes._id) }}">
+                        <button type="submit" class="btn btn-success" data-toggle="modal"
+                            data-target="submitButton">Edit</button>
+                    </a>
+                    <a href="{{ url_for('delete_recipe', edit_id=recipes._id) }}">
+                        <button type="submit" class="btn btn-success" data-toggle="modal"
+                            data-target="submitButton">Delete</button>
+                    </a>
                     {% endif %}
                 </div>
             </div>

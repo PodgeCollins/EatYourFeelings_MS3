@@ -6,49 +6,50 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 mx-auto">
                 <div class="site-heading">
-                    <h1>{{ header }}</h1>
+                    <h1 class="lobster-brown">{{ header }}</h1>
                 </div>
             </div>
         </div>
     </div>
-  </section>
-<section class="details-container">
+</section>
+<section class="login-container">
     <div class="text-center">
-        <div class="center-form responsive">
-            <h3>Edit Recipe</h3>
+        <div class="signup-center-form responsive">
+            <h3 class="lobster-yellow">Edit Recipe</h3>
             <form method="POST" action="{{ url_for('edit_recipe', edit_id=recipes._id) }}">
                 <div class="padding">
-                    <input id="title" name="title" minlength="5" maxlength="50" 
-                    type="text" class="form-control" value="{{ recipes.title }}" required />
+                    <input id="title" name="title" minlength="5" maxlength="50" type="text" class="form-control"
+                        value="{{ recipes.title }}" required />
                 </div>
                 <div class="padding">
                     <textarea id="description" name="description" type="text" class="form-control"
-                     required />{{ recipes.description }}</textarea>
+                        required />{{ recipes.description }}</textarea>
                 </div>
                 <div class="padding">
                     <textarea id="ingredients" name="ingredients" class="form-control" rows="2" minlength="5"
-                     required>{{ recipes.ingredients }}</textarea>
+                        required>{{ recipes.ingredients }}</textarea>
                 </div>
                 <div class="padding">
                     <textarea id="instructions" name="instructions" class="form-control" rows="2" minlength="5"
-                     required>{{ recipes.instructions }}</textarea>
+                        required>{{ recipes.instructions }}</textarea>
                 </div>
                 <div class="padding">
-                    <input id="image_url" name="image_url" class="form-control" type="url" value="{{ recipes.image_url }}">
+                    <input id="image_url" name="image_url" class="form-control" type="url"
+                        value="{{ recipes.image_url }}">
                 </div>
                 <div class="form-row text-center">
                     <div class="col">
-                    <a href="{{ url_for('get_recipes') }}">
-                        <button type="submit" class="btn btn-success" data-toggle="modal"
-                        data-target="submitButton">Edit Recipe</button>
-                    </a>
-                    <a href="{{ url_for('get_recipes') }}">
-                        <button type="submit" class="btn btn-success" data-toggle="modal"
-                        data-target="submitButton">Cancel</button>
-                    </a>
+                        <a href="{{ url_for('get_recipes') }}">
+                            <button type="submit" class="btn btn-success" data-toggle="modal"
+                                data-target="submitButton">Edit Recipe</button>
+                        </a>
+                        <a href="{{ url_for('get_recipes') }}">
+                            <button type="submit" class="btn btn-success" data-toggle="modal"
+                                data-target="submitButton">Cancel</button>
+                        </a>
                     </div>
                 </div>
-                
+
             </form>
         </div>
 </section>

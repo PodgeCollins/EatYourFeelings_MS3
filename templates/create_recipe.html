@@ -6,16 +6,16 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 mx-auto">
                 <div class="site-heading">
-                    <h1>{{ header }}</h1>
+                    <h1 class="lobster-brown">{{ header }}</h1>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section class="details-container">
+<section class="login-container">
     <div class="text-center">
-        <div class="center-form responsive">
-            <h3>Create recipe</h3>
+        <div class="signup-center-form responsive">
+            <h3 class="lobster-yellow">Create recipe</h3>
             <form method="POST" action="{{ url_for('create_recipe') }}">
                 <div class="padding">
                     <input id="title" name="title" minlength="5" maxlength="50" type="text" class="form-control"
