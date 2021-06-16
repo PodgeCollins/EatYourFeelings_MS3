@@ -69,7 +69,7 @@ img {
 .container-fluid {
     padding-right: 15px;
     padding-left: 15px;
-    margin-bottom: 150px;
+    padding-bottom: 15px;
     margin-right: auto;
     margin-left: auto;
 }

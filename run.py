@@ -43,17 +43,17 @@ def get_recipes():
     subheader="for Gluttony & Self Loathing", recipes=recipe)
 
 
-@app.route("/instructions/<recipe_id>")
-def instructions(recipe_id):
+@app.route("/recipe/<recipe_id>")
+def recipe(recipe_id):
     """
-    Display instructions page.
+    Display recipe page.
     Fetch recipe by database id from
     MongoDB recipes collection.
     Returns:
-    template: instructions.html.
+    template: recipe.html.
     """
     recipes = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("instructions.html", recipes=recipes)
+    return render_template("recipe.html", recipes=recipes)
 
 
 @app.route("/login", methods=["GET", "POST"])

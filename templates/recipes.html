@@ -21,12 +21,12 @@
             {% for recipe in recipes %}
             <div class="col-md-6">
                 <div class="card">
-                    <a href="{{ url_for('instructions', recipe_id=recipe._id) }}"><img src="{{ recipe.image_url }}" 
+                    <a href="{{ url_for('recipe', recipe_id=recipe._id) }}"><img src="{{ recipe.image_url }}" 
                             alt="background" class="image-responsive" onerror="this.src='https://raw.githubusercontent.com/PodgeCollins/EatYourFeelings_MS3/master/static/img/teeth.png';"></a>
                     
                     <div class="container">
                         <div class="title-card">
-                            <a href="{{ url_for('instructions', recipe_id=recipe._id) }}">
+                            <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
                                 <h4>{{ recipe.title }}</h4>
                             </a>
                         </div>
