@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@100;200;300;400;500&display=swap');
 
+html, body{
+    height: 100%;
+}
+
 body {
     background-image: url(../img/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    min-height: 100vh;
+    padding-top: 87px; 
 }
+
+
 
 /*-------------------------------------------------------Font Stylings--------------*/
 p {
@@ -60,6 +66,12 @@ img {
 
 .container-fluid {
     padding-bottom: 15px;
+}
+
+.container-fluid .scrollable {
+    height: 100%; 
+    overflow: auto; 
+
 }
 
 /*-------------------------------------------------------Navigation Bar--------------*/
@@ -223,7 +235,6 @@ img {
 .profile-container {
     width: 60%;
     margin-top: 50px;
-    margin-bottom: 200px;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -260,7 +271,32 @@ form p {
 
 .login-container {
     width: 40%;
-    margin-top: 50px;
+    padding: 10px 15px 15px 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(97, 68, 68, 0.900);
+    background-clip: border-box;
+    border: 1px solid rgba(133, 81, 81, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
+}
+
+.signup-container {
+    width: 40%;
+    padding: 10px 15px 15px 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(97, 68, 68, 0.900);
+    background-clip: border-box;
+    border: 1px solid rgba(133, 81, 81, 0.125);
+    border-radius: .25rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    transition: 0.3s;
+}
+
+.create-container {
+    width: 40%;
     padding: 10px 15px 15px 15px;
     margin-right: auto;
     margin-left: auto;
@@ -302,9 +338,6 @@ form p {
 
 footer {
     background-color: #614444 !important;
-    position: relative;
-    height: 120px;
-    margin-top: 460px;
 }
 
 footer p {
@@ -324,7 +357,7 @@ footer .copyright {
 
 i {
     color: #D9CFAC;
-    font-size: 1.75em;
+    font-size: 1.5em;
     margin-top: 15px;
 }
 
