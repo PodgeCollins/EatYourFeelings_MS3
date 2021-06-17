@@ -40,13 +40,16 @@
                     </div>
                     <div class="form-row text-center">
                         <div class="col">
+                            <a href="{{ url_for('get_recipes') }}">
                             <button type="submit" class="btn btn-success" data-toggle="modal"
-                                    data-target="submitButton"><a href="{{ url_for('get_recipes') }}">Edit Recipe</a></button>
+                                    data-target="submitButton">Edit Recipe</a></button>
+                            </a>
+                            <a href="{{ url_for('get_recipes') }}"></a>
                             <button type="submit" class="btn btn-success" data-toggle="modal"
-                                    data-target="submitButton"><a href="{{ url_for('get_recipes') }}">Cancel</a></button>
+                                    data-target="submitButton">Cancel</button>
+                            </a>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
