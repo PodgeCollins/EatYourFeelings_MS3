@@ -31,6 +31,13 @@ def index():
         subheader="Please Read Before You Proceed", recipes=recipe)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    search = request.form.get("search")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": search}}))
+    return render_template("recipes.html", recipes=recipes)
+
+
 @app.route("/get_recipes")
 def get_recipes():
     """
@@ -253,15 +260,17 @@ def page_gone(e):
     Returns:
     template: redirects to 410.html
     return render_template('410.html'), 410
+    """
 
 
 @app.errorhandler(500)
 def internal_error(e):
+    """
     Custom 500 error page.
     Returns:
     template: redirects to 500.html
+    """
     return render_template('500.html'), 500
-"""
 
 
 if __name__ == "__main__":

@@ -4,9 +4,9 @@
 
 ---
 
-![Eat Your Feelings](static/readme-assets/Multishottransparent.png)
+![Eat Your Feelings](static/readme-assets/mockup-screenshot.png)
 This webpage was created to showcase the skills I have learned in the Python Essentials/Backend Development section of the Code Institute Full Stack Web Developer course; this is the third assignment I have completed thus far.
-For this project I have chosen to create a dessert recipe website using the MongoDB database, Python, Flask and Jinja.
+For this project I have chosen to create an online dessert focused cookbook using the MongoDB database, Python, Flask and Jinja.
 The aim was to create a website that allows users to create an account, view other account holders recipes and add their own desserts to the database.
 
 ---
@@ -299,6 +299,19 @@ All of the following technologies were used to create this website:-
     *   All footer links to social media function as expected
     *   Links to the different cooking utensils function as expected
 
+#### Recipes page
+
+*   Test all links to different recipes:
+    *   All recipes link to specific recipe page
+    *   Recipes organised by most recently added
+    *   Replacement image generates if no image is added by recipe creator
+
+#### Recipe page
+
+*   Test link to edit recipe:
+    *   All info from Mongdb displays upon entering this page
+    *   Link to edit recipe page functions as expected
+
 #### Sign Up page
 
 *   Test Sign Up form:
@@ -399,6 +412,8 @@ All of the following technologies were used to create this website:-
 ### **Acknowledgements**
 
 *   I received advice for improving my search bar code from my Code Institute mentor **Oluwafemi Medale**
+
+*   Additional help to put font awesome icon in search bar from [StackOverflow]    (https://stackoverflow.com/questions/19350291/use-font-awesome-icon-in-placeholder)
 
 *	I received styling inspiration from:
 
