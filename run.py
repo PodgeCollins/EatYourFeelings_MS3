@@ -76,18 +76,15 @@ def login():
         if user:
 
             if check_password_hash(
-            user["password"], request.form.get("password")):
+                user["password"], request.form.get("password")):
                 session["chef"] = request.form.get("email").lower()
                 session["firstName"] = user["firstName"]
             flash("Welcome back, we've missed you!")
             return redirect(url_for("profile", chef=["chef"]))
-            else:
-                flash("Incorrect Email and/or Password")
-                return redirect(url_for("login"))
-
         else:
             flash("Incorrect Email and/or Password")
             return redirect(url_for("login"))
+
     return render_template(
         "login.html", header="Log In!")
 
