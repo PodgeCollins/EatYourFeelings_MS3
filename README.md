@@ -369,6 +369,9 @@ All of the following technologies were used to create this website:-
 
 *   * Footer covers some of the pages content when scrolled to the bottom on One Plus 8T mobile device but not on dev tools devices
         * Issue not resolved
+
+*   * Issue with HTML validation of edit_recipe.html, 'The element button must not appear as a descendant of the a element.' However the code is identical to the anchor tags and buttons on profile.html and no error arises for that page.
+        * Issue not resolved
 ---
 
 ## **Deployment**
