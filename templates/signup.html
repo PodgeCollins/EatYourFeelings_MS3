@@ -11,41 +11,40 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 <section class="container-fluid">
     <div class="signup-container">
-    <div class="text-center">
-        <div class="signup-center-form responsive">
-            <form method="POST" action="{{ url_for('signup') }}">
-                <p>Enter Details below for Full Site Access</p>
-                <div class="padding">
-                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name"
-                        required />
-                </div>
-                <div class="padding">
-                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name"
-                        required />
-                </div>
-                <div class="padding">
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required />
-                </div>
-                <div class="padding">
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Password"
-                        required />
-                </div>
-                <div class="form-row text-center">
-                    <div class="col">
-                        <button type="submit" class="btn btn-success" data-toggle="modal"
-                            data-target="submitButton">Sign
-                            Up</button>
+        <div class="text-center">
+            <div class="signup-center-form responsive">
+                <form method="POST" action="{{ url_for('signup') }}">
+                    <p>Enter Details below for Full Site Access</p>
+                    <div class="padding">
+                        <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name"
+                            required />
                     </div>
-                </div>
-                <p>Already a member? Sign In <a href="{{ url_for('login') }}">Here</a></p>
-            </form>
+                    <div class="padding">
+                        <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name"
+                            required />
+                    </div>
+                    <div class="padding">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required />
+                    </div>
+                    <div class="padding">
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                            required />
+                    </div>
+                    <div class="form-row text-center">
+                        <div class="col">
+                            <button type="submit" class="btn btn-success" data-toggle="modal"
+                                data-target="submitButton">Sign
+                                Up</button>
+                        </div>
+                    </div>
+                    <p>Already a member? Sign In <a href="{{ url_for('login') }}">Here</a></p>
+                </form>
+            </div>
         </div>
-    </div>
     </div>
     </div>
 </section>

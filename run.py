@@ -84,7 +84,7 @@ def login():
 
             if check_password_hash(
                 user["password"], request.form.get("password")):
-                session["chef"] = request.form.get("email").lower()
+                session["email"] = request.form.get("email").lower()
                 session["firstName"] = user["firstName"]
             flash("Welcome back, we've missed you!")
             return redirect(url_for("profile", chef=["chef"]))
@@ -123,33 +123,34 @@ def signup():
         }
         mongo.db.chefs.insert_one(signup)
 
-        session["chef"] = request.form.get("email").lower()
+        session["email"] = request.form.get("email").lower()
         session["firstName"] = request.form.get("firstname")
         flash("Welcome to the Family, {}!".format(
             request.form.get("firstname")))
-        return redirect(url_for("index", chef=["chef"]))
+        return redirect(url_for("index"))
 
     return render_template("signup.html", header="Create an Account!")
 
 
-@app.route("/profile/<chef>", methods=["GET", "POST"])
-def profile(chef):
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
     """
     Displays profile page, retreives session user's firstName from database.
     Show recipes created by account holder.
     Returns:
     template: profile.html if login successful.
     """
-    chef = mongo.db.chefs.find_one(
-        {"email": session["chef"]})
-
-    if session["chef"]:
+    if 'email' in session:
+        chef = mongo.db.chefs.find_one(
+            {"email": session["email"]})
         recipes = list(
-            mongo.db.recipes.find({"created_by": chef}))
+            mongo.db.recipes.find({"created_by": session["email"]}))
 
-    return render_template(
-        "profile.html", header="This is Chef Master,",
-        chef=chef, recipes=recipes)
+        return render_template(
+            "profile.html", header="This is Chef Master,",
+            chef=chef, recipes=recipes)
+    else:
+        return redirect(url_for("index"))
 
 
 @app.route("/logout")
@@ -161,7 +162,8 @@ def logout():
     template: login.html.
     """
     flash("Cya Later, We'll Miss You!")
-    session.pop("chef")
+    session.pop("email")
+    session.pop("firstName")
     return redirect(url_for("login"))
 
 
@@ -176,23 +178,28 @@ def create_recipe():
     template: create_recipe.html
     template: recipes.html after entires.
     """
-    if request.method == "POST":
-        recipe = {
-            "title": request.form.get("title"),
-            "description": request.form.get("description"),
-            "ingredients": request.form.get("ingredients"),
-            "instructions": request.form.get("instructions"),
-            "image_url": request.form.get("image_url"),
-            "created_by": session["chef"],
-            "owner": session["firstName"]
-        }
-        mongo.db.recipes.insert_one(recipe)
-        flash("Recipe Successfully Added")
-        return redirect(url_for("get_recipes"))
-    recipe = mongo.db.recipes.find().sort("title", 1)
-    return render_template(
-        "create_recipe.html",
-        header="What Sweets you got in Mind?", recipes=recipe)
+    if 'email' in session:
+        chef = mongo.db.chefs.find_one(
+            {"email": session["email"]})
+        if request.method == "POST":
+            recipe = {
+                "title": request.form.get("title"),
+                "description": request.form.get("description"),
+                "ingredients": request.form.get("ingredients"),
+                "instructions": request.form.get("instructions"),
+                "image_url": request.form.get("image_url"),
+                "created_by": session["email"],
+                "owner": session["firstName"]
+            }
+            mongo.db.recipes.insert_one(recipe)
+            flash("Recipe Successfully Added")
+            return redirect(url_for("get_recipes"))
+        recipe = mongo.db.recipes.find().sort("title", 1)
+        return render_template(
+            "create_recipe.html",
+            header="What Sweets you got in Mind?", chef=chef, recipes=recipe)
+    else:
+        return redirect(url_for("index"))
 
 
 @app.route("/edit_recipe/<edit_id>", methods=["GET", "POST"])
@@ -212,7 +219,7 @@ def edit_recipe(edit_id):
             "ingredients": request.form.get("ingredients"),
             "instructions": request.form.get("instructions"),
             "image_url": request.form.get("image_url"),
-            "created_by": session["chef"]
+            "created_by": session["email"]
         }
         mongo.db.recipes.update({"_id": ObjectId(edit_id)}, recipe)
         flash("Recipe Successfully Updated")
@@ -245,22 +252,14 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
-"""
-@app.errorhandler(403)
+@app.errorhandler(405)
 def page_forbidden(e):
+    """
     Custom 403 error page.
     Returns:
-    template: redirects to 403.html
-    return render_template('403.html'), 403
-
-
-@app.errorhandler(410)
-def page_gone(e):
-    Custom 410 error page.
-    Returns:
-    template: redirects to 410.html
-    return render_template('410.html'), 410
+    template: redirects to 405.html
     """
+    return render_template('405.html'), 405
 
 
 @app.errorhandler(500)

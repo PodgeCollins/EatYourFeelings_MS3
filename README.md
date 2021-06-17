@@ -1,4 +1,5 @@
 # **MS 3 – Eat Your Feelings**
+[Visit Full Site Here](http://eat-your-feelings.herokuapp.com/)
 
 ## **Eat Your Feelings Database**
 
@@ -59,13 +60,8 @@ This app allows the user to:
 - delete recipes they created
 
 ### **Wireframes**
-![Recipes](static/readme-assets/recipes.png)
-![Recipe](static/readme-assets/recipe.png)
-![Log-In](static/readme-assets/login.png)
-![Sign-Up](static/readme-assets/signup.png)
-![Mobile-View](static/readme-assets/mobile-view.png)
 
-The Figma project file for the wireframes can be view [here](https://www.figma.com/file/AYkebqGgPDhzMqU1ghJk1a/Eat-Your-Feeling-MS3?node-id=0%3A1) 
+Link to Wireframes [here](https://www.figma.com/file/AYkebqGgPDhzMqU1ghJk1a/Eat-Your-Feeling-MS3?node-id=0%3A1) 
 
 #### **Design Differences**
 
@@ -128,7 +124,7 @@ The Google fonts Lobster and raleway have been used exclusively on the website
     ![Recommendations](static/readme-assets/index-two.png)       
     
     2. The recipes page displays the full database of desserts that users have created. Each recipe has its own card with an image of the dessert, it's name and descrption about the recipe. The title and image on all recipes work as links to the recipe page for that particular dessert. 
-    ![Recipes](static/readme-assets/recipes-live.png)
+    ![Recipes](static/readme-assets/recipe-live.png)
     
     3. The Login and Sign Up sections take the user to the related page, allowing the customer to either login or sign up. The pages have links to each other in case the customer has click the wrong one.
     ![Login](static/readme-assets/login-live.png)
@@ -149,8 +145,10 @@ The Google fonts Lobster and raleway have been used exclusively on the website
     8. The log out button logs the user out and returns them to the login page.
     ![Log Out](static/readme-assets/logout.png)
 
-    9. I also include custom 404, 403, 410 & 500 error pages incase the app is to ever crash.
-    ! [ErrorPages](static/readme-assets/errors)
+    9. I also include custom 404, 405 & 500 error pages incase the app is to ever crash.
+    ! [404](static/readme-assets/fourohfour.png)
+    ! [405](static/readme-assets/fourohfive.png)
+    ! [500](static/readme-assets/fiveohfive.png)
 
 ### **Existing Features**
 
@@ -331,7 +329,7 @@ All of the following technologies were used to create this website:-
 #### Profile page
 
 *   
-    *   Once signed in the customer recieves a welcome message and their first name appears anytime they click on the my account page
+    *   Once signed in the customer recieves a welcome message and their first  name appears anytime they click on the my account page
     *   The create recipe button takes the user to the create recipe form
     *   The edit recipe button takes the user to the edit recipe form
     *   The delete recipe button removes the dessert
@@ -360,7 +358,11 @@ All of the following technologies were used to create this website:-
     
 #### *Issues Found*
 
-*   
+*   * An issue arose when adding fixed-top class to navbar. The titles of each page pushed up behind the navbar making them illegible.
+        * Resolved by adding a padding-top to the body.
+
+*   * Similar issues arose with the footer as it would float into the middle of the page and cover the main page content.
+        * Resolved by setting the footer to fixed-bottom class and adding padding-bottom to the body so it didnt block any of the pages content.
 ---
 
 ## **Deployment**
@@ -414,6 +416,8 @@ All of the following technologies were used to create this website:-
 *   I received advice for improving my search bar code from my Code Institute mentor **Oluwafemi Medale**
 
 *   Additional help to put font awesome icon in search bar from [StackOverflow]    (https://stackoverflow.com/questions/19350291/use-font-awesome-icon-in-placeholder)
+
+*   Additional help to test Error Pages from [Youtube](https://www.youtube.com/watch?v=2TUaf-Jp5kw&ab_channel=PrettyPrinted)
 
 *	I received styling inspiration from:
 

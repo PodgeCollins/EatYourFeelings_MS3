@@ -14,7 +14,8 @@
     </div>
     <div class="row">
         <form action="{{ url_for('search') }}" method="post" class="col">
-                    <input type="text" name="search" id="search" minlength="3" class="search-form padding empty" id="iconified" placeholder="&#xf002; Search" required>
+            <input type="text" name="search" id="search" minlength="3" class="search-form padding empty" id="iconified"
+                placeholder="&#xf002; Search" required>
         </form>
     </div>
 </section>
@@ -27,7 +28,6 @@
                     <a href="{{ url_for('recipe', recipe_id=recipe._id) }}"><img src="{{ recipe.image_url }}"
                             alt="background" class="image-responsive"
                             onerror="this.src='https://raw.githubusercontent.com/PodgeCollins/EatYourFeelings_MS3/master/static/img/teeth.png';"></a>
-
                     <div class="container">
                         <div class="title-card">
                             <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
@@ -37,7 +37,6 @@
                         <div class="description-card">
                             <p>{{ recipe.description }}</p>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -45,5 +44,4 @@
         </div>
     </div>
 </section>
-
 {% endblock %}

@@ -14,45 +14,45 @@
 </section>
 <section class="container-fluid">
     <div class="edit-container">
-    <div class="text-center">
-        <div class="signup-center-form responsive">
-            <h3 class="lobster-yellow">Edit Recipe</h3>
-            <form method="POST" action="{{ url_for('edit_recipe', edit_id=recipes._id) }}">
-                <div class="padding">
-                    <input id="title" name="title" minlength="5" maxlength="50" type="text" class="form-control"
-                        value="{{ recipes.title }}" required />
-                </div>
-                <div class="padding">
-                    <textarea id="description" name="description" type="text" class="form-control"
-                        required />{{ recipes.description }}</textarea>
-                </div>
-                <div class="padding">
-                    <textarea id="ingredients" name="ingredients" class="form-control" rows="2" minlength="5"
-                        required>{{ recipes.ingredients }}</textarea>
-                </div>
-                <div class="padding">
-                    <textarea id="instructions" name="instructions" class="form-control" rows="2" minlength="5"
-                        required>{{ recipes.instructions }}</textarea>
-                </div>
-                <div class="padding">
-                    <input id="image_url" name="image_url" class="form-control" type="url"
-                        value="{{ recipes.image_url }}">
-                </div>
-                <div class="form-row text-center">
-                    <div class="col">
-                        <a href="{{ url_for('get_recipes') }}">
-                            <button type="submit" class="btn btn-success" data-toggle="modal"
-                                data-target="submitButton">Edit Recipe</button>
-                        </a>
-                        <a href="{{ url_for('get_recipes') }}">
-                            <button type="submit" class="btn btn-success" data-toggle="modal"
-                                data-target="submitButton">Cancel</button>
-                        </a>
+        <div class="text-center">
+            <div class="signup-center-form responsive">
+                <h3 class="lobster-yellow">Edit Recipe</h3>
+                <form method="POST" action="{{ url_for('edit_recipe', edit_id=recipes._id) }}">
+                    <div class="padding">
+                        <input id="title" name="title" minlength="5" maxlength="50" type="text" class="form-control"
+                            value="{{ recipes.title }}" required />
                     </div>
-                </div>
+                    <div class="padding">
+                        <textarea id="description" name="description" type="text" class="form-control"
+                            required />{{ recipes.description }}</textarea>
+                    </div>
+                    <div class="padding">
+                        <textarea id="ingredients" name="ingredients" class="form-control" rows="2" minlength="5"
+                            required>{{ recipes.ingredients }}</textarea>
+                    </div>
+                    <div class="padding">
+                        <textarea id="instructions" name="instructions" class="form-control" rows="2" minlength="5"
+                            required>{{ recipes.instructions }}</textarea>
+                    </div>
+                    <div class="padding">
+                        <input id="image_url" name="image_url" class="form-control" type="url"
+                            value="{{ recipes.image_url }}">
+                    </div>
+                    <div class="form-row text-center">
+                        <div class="col">
+                            <a href="{{ url_for('get_recipes') }}">
+                                <button type="submit" class="btn btn-success" data-toggle="modal"
+                                    data-target="submitButton">Edit Recipe</button>
+                            </a>
+                            <a href="{{ url_for('get_recipes') }}">
+                                <button type="submit" class="btn btn-success" data-toggle="modal"
+                                    data-target="submitButton">Cancel</button>
+                            </a>
+                        </div>
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
 </section>
 {% endblock %}

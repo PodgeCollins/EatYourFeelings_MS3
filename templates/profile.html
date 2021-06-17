@@ -6,16 +6,38 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 mx-auto">
                 <div class="site-heading">
-                    <h1 class="lobster-brown">{{ header }}</h1>
-
+                    <h1 class="lobster-brown">This is {{ chef.firstName }}'s Profile</h1>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section class="profile-container">
-    <div class="center-form responsive">
-        <h3 class="lobster-yellow text-center"> {{ chef.firstName }}'s Profile</h3>
+<div class="row">
+    {% for recipe in recipes %}
+    <div class="col-xl-4 col-md-6 col-sm-12">
+        <div class="card">
+            <a href="{{ url_for('recipe', recipe_id=recipe._id) }}"><img src="{{ recipe.image_url }}" alt="background"
+                    class="image-responsive"
+                    onerror="this.src='https://raw.githubusercontent.com/PodgeCollins/EatYourFeelings_MS3/master/static/img/teeth.png';"></a>
+            <div class="container">
+                <div class="title-card">
+                    <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
+                        <h4 class="lobster-brown">{{ recipe.title }}</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col text-center">
+                <a href="{{ url_for('edit_recipe', edit_id=recipe._id) }}">
+                    <button type="submit" class="btn btn-success" data-toggle="modal"
+                        data-target="submitButton">Edit</button>
+                </a>
+                <a href="{{ url_for('delete_recipe', edit_id=recipe._id) }}">
+                    <button type="submit" class="btn btn-success" data-toggle="modal"
+                        data-target="submitButton">Delete</button>
+                </a>
+            </div>
+        </div>
     </div>
-</section>
+    {% endfor %}
+</div>
 {% endblock %}
