@@ -82,7 +82,6 @@ def login():
             flash("Welcome back, we've missed you!")
             return redirect(url_for("profile", chef=["chef"]))
             else:
-                
                 flash("Incorrect Email and/or Password")
                 return redirect(url_for("login"))
 
