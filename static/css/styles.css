@@ -25,6 +25,7 @@ p {
 a {
     font-family: Lobster, sans-serif;
     color: #614444;
+    text-decoration: none;
 }
 
 p a {
