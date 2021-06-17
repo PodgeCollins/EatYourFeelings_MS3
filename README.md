@@ -282,10 +282,13 @@ All of the following technologies were used to create this website:-
  
 #### *Testing On Browsers*
    *    Google Chrome
+   *    Safari
+   *    Firefox
 
     
 #### *Testing On Operating Systems*
    *    Apple Mac OS
+   *    One Plus
 
 
 ### **Defensive Design Testing**
@@ -363,6 +366,9 @@ All of the following technologies were used to create this website:-
 
 *   * Similar issues arose with the footer as it would float into the middle of the page and cover the main page content.
         * Resolved by setting the footer to fixed-bottom class and adding padding-bottom to the body so it didnt block any of the pages content.
+
+*   * Footer covers some of the pages content when scrolled to the bottom on One Plus 8T mobile device but not on dev tools devices
+        * Issue not resolved
 ---
 
 ## **Deployment**

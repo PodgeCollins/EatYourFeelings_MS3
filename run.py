@@ -83,11 +83,11 @@ def login():
         if user:
 
             if check_password_hash(
-                user["password"], request.form.get("password")):
-                session["email"] = request.form.get("email").lower()
-                session["firstName"] = user["firstName"]
-            flash("Welcome back, we've missed you!")
-            return redirect(url_for("profile", chef=["chef"]))
+                    user["password"], request.form.get("password")):
+                    session["email"] = request.form.get("email").lower()
+                    session["firstName"] = user["firstName"]
+                    flash("Welcome back, we've missed you!")
+                    return redirect(url_for("profile", chef=["chef"]))
         else:
             flash("Incorrect Email and/or Password")
             return redirect(url_for("login"))
@@ -122,7 +122,6 @@ def signup():
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.chefs.insert_one(signup)
-
         session["email"] = request.form.get("email").lower()
         session["firstName"] = request.form.get("firstname")
         flash("Welcome to the Family, {}!".format(

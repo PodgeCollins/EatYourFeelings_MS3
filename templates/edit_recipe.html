@@ -23,8 +23,8 @@
                             value="{{ recipes.title }}" required />
                     </div>
                     <div class="padding">
-                        <textarea id="description" name="description" type="text" class="form-control"
-                            required />{{ recipes.description }}</textarea>
+                        <textarea id="description" name="description" class="form-control"
+                            required>{{ recipes.description }}</textarea>
                     </div>
                     <div class="padding">
                         <textarea id="ingredients" name="ingredients" class="form-control" rows="2" minlength="5"
@@ -40,19 +40,16 @@
                     </div>
                     <div class="form-row text-center">
                         <div class="col">
-                            <a href="{{ url_for('get_recipes') }}">
-                                <button type="submit" class="btn btn-success" data-toggle="modal"
-                                    data-target="submitButton">Edit Recipe</button>
-                            </a>
-                            <a href="{{ url_for('get_recipes') }}">
-                                <button type="submit" class="btn btn-success" data-toggle="modal"
-                                    data-target="submitButton">Cancel</button>
-                            </a>
+                            <button type="submit" class="btn btn-success" data-toggle="modal"
+                                    data-target="submitButton"><a href="{{ url_for('get_recipes') }}">Edit Recipe</a></button>
+                            <button type="submit" class="btn btn-success" data-toggle="modal"
+                                    data-target="submitButton"><a href="{{ url_for('get_recipes') }}">Cancel</a></button>
                         </div>
                     </div>
 
                 </form>
             </div>
         </div>
+    </div>
 </section>
 {% endblock %}
