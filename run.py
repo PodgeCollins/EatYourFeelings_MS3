@@ -26,8 +26,9 @@ def index():
     template: index.html.
     """
     recipe = mongo.db.recipes.find()
-    return render_template("index.html", header="Disclaimer",
-    subheader="Please Read Before You Proceed", recipes=recipe)
+    return render_template(
+        "index.html", header="Disclaimer",
+        subheader="Please Read Before You Proceed", recipes=recipe)
 
 
 @app.route("/get_recipes")
@@ -39,9 +40,9 @@ def get_recipes():
     template: recipes.html.
     """
     recipe = list(mongo.db.recipes.find().sort("_id", -1))
-    return render_template("recipes.html",
-    header="Perfect Recipes",
-    subheader="for Gluttony & Self Loathing", recipes=recipe)
+    return render_template(
+        "recipes.html", header="Perfect Recipes",
+        subheader="for Gluttony & Self Loathing", recipes=recipe)
 
 
 @app.route("/recipe/<recipe_id>")
@@ -75,19 +76,17 @@ def login():
         if user:
 
             if check_password_hash(
-                user["password"], request.form.get("password")):
+            user["password"], request.form.get("password")):
                 session["chef"] = request.form.get("email").lower()
                 session["firstName"] = user["firstName"]
-                flash("Welcome back, we've missed you!")
-                return redirect(url_for(
-                "profile", chef=["chef"]))
+            flash("Welcome back, we've missed you!")
+            return redirect(url_for("profile", chef=["chef"]))
             else:
-
+                
                 flash("Incorrect Email and/or Password")
                 return redirect(url_for("login"))
 
         else:
-            # username doesn't exist
             flash("Incorrect Email and/or Password")
             return redirect(url_for("login"))
     return render_template(
@@ -145,8 +144,9 @@ def profile(chef):
         recipes = list(
             mongo.db.recipes.find({"created_by": chef}))
 
-    return render_template("profile.html",
-    header="This is Chef Master,", chef=chef, recipes=recipes)
+    return render_template(
+        "profile.html", header="This is Chef Master,",
+        chef=chef, recipes=recipes)
 
 
 @app.route("/logout")
@@ -242,8 +242,34 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
+"""
+@app.errorhandler(403)
+def page_forbidden(e):
+    Custom 403 error page.
+    Returns:
+    template: redirects to 403.html
+    return render_template('403.html'), 403
+
+
+@app.errorhandler(410)
+def page_gone(e):
+    Custom 410 error page.
+    Returns:
+    template: redirects to 410.html
+    return render_template('410.html'), 410
+
+
+@app.errorhandler(500)
+def internal_error(e):
+    Custom 500 error page.
+    Returns:
+    template: redirects to 500.html
+    return render_template('500.html'), 500
+"""
+
+
 if __name__ == "__main__":
     app.run(
             host=os.environ.get("IP", "0.0.0.0"),
             port=int(os.environ.get("PORT", "5000")),
-            debug=True)
+            debug=False)
