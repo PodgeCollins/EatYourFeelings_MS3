@@ -348,7 +348,7 @@ form p {
 
 footer {
     position: absolute;
-    height: 120;
+    height: 120px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -442,16 +442,24 @@ button[type="submit"] {
         max-width: 80%;
     }
     .login-container {
-        width: 100%;
+        width: 100%
+    }
+    
+    .signup-container {
+        width: 100%
+    }
+    .create-container {
+        width: 100%
+    }
+    .edit-container {
+        width: 100%
     }
     .description-card{
         height: 5px;
         visibility: hidden;
-
     }
     .description-card p{
         visibility: hidden;
-
     }
     .search-form{
         visibility: hidden;
@@ -466,14 +474,24 @@ button[type="submit"] {
     .description-card{
         height: 5px;
         visibility: hidden;
-
     }
     .description-card p{
         visibility: hidden;
-
     }
     .search-form{
         visibility: hidden;
+    }
+    .login-container {
+        width: 100%
+    }
+    .signup-container {
+        width: 100%
+    }
+    .create-container {
+        width: 100%
+    }
+    .edit-container {
+        width: 100%
     }
 }
 
@@ -482,18 +500,25 @@ button[type="submit"] {
     .description-card{
         height: 5px;
         visibility: hidden;
-
     }
     .description-card p{
         visibility: hidden;
-
     }
     .signup-center-form {
         margin: auto;
         max-width: 80%;
     }
     .login-container {
-        width: 80%;
+        width: 80%
+    }
+    .signup-container {
+        width: 80%
+    }
+    .create-container {
+        width: 80%
+    }
+    .edit-container {
+        width: 80%
     }
     .search-form{
         visibility: visible;
@@ -523,8 +548,24 @@ button[type="submit"] {
     #mainNav .navbar-nav>li.nav-item>a:hover {
         color: #f3da7e;
     }
+
+    .recipe-container{
+        width:80%;
+    }
     .login-container {
-        width: 40%;
+        width: 40%
+    }
+    
+    .signup-container {
+        width: 40%
+    }
+    
+    .create-container {
+        width: 40%
+    }
+    
+    .edit-container {
+        width: 40%
     }
     .description-card{
         height: 90px;
